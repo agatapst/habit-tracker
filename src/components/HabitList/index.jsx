@@ -1,28 +1,42 @@
 import React, { useState } from 'react';
+import { Navbar } from '../Navbar';
 import { AddNewHabitModal } from '../AddNewHabitModal';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
+import { HabitsList } from './HabitsList';
+import { Box, Button, Typography } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) =>
+createStyles({
+  mainContainer: {
+    height: '600px',
+    width: '500px',
+    marginTop: '50px',
+    background: '#FCE4A6',
+    border: '1px solid red',
+    borderRadius: '5px',
+    padding: '20px',
+    position: 'relative'
+  },
+}),
+);
 
 export const HabitList = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [habitsList, setHabitsList] = useState([]);
 
+  const classes = useStyles();
   const addNewHabit = habit => setHabitsList([...habitsList, habit]);
 
   return (
-    <Box height={600} width={500} m={10} bgcolor="#FCE4A6">
+    <Box className={classes.mainContainer}>
         <Box display="flex" justifyContent="space-between">
-          hello this is habit list
-          <Button variant="contained" color="primary" onClick={ () => {setModalOpen(true)}}>+ add new</Button>
+        <Typography variant="h3">
+         Choose habit to track
+        </Typography>
         </Box>
         <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
-        <ul>
-          
-          {habitsList.map((habit, index) => (
-            <li key={index}>{habit.title} {habit.description} {habit.repeatMode}</li>
-          ))}
-         
-        </ul>
+        <HabitsList habitsList={habitsList}/>
+        <Navbar onClick={ () => {setModalOpen(true)}} />
     </Box>
   );
 };
