@@ -10,16 +10,11 @@ export function InputField ({
     return (
       <Field
         name={name}
-        render={({
-          field: { value, onChange: handleChange, ...field },
-          form
-        }) => {
-  
+        render={({field}) => {
           return (
               <TextField
                 {...props}
                 {...field}
-                value={value}
                 label={label}
               />
           );
@@ -37,17 +32,13 @@ export function InputField ({
     return (
       <Field
         name={name}
-        render={({
-          field: { value, onChange: handleChange, ...field },
-          form
-        }) => {
+        render={({field}) => {
   
           return (
               <Select
-                {...props}
-                {...field}
-                value={value}
                 label={label}
+                {...field}
+                {...props}
               >
                 {children}
               </Select>

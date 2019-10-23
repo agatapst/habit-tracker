@@ -23,9 +23,10 @@ createStyles({
 }),
 );
 
-export const AddNewHintModal = ({
+export const AddNewHabitModal = ({
   isOpen,
   onClose,
+  addNewHabit,
   children,
   ...props
 }) => {
@@ -53,9 +54,10 @@ export const AddNewHintModal = ({
     <button onClick={onClose}>Close the modal</button>
     
     <Formik 
-    initialValues={{title: ''}}
+    initialValues={{title: '', description: '', repeatMode: 'everyday'}}
     onSubmit={(values, actions) => {
-      console.log('submit')
+      console.log('submit');
+      addNewHabit(values);
       // updateHabitList(updatedHabitList);
     }}
     render={(isSumbitting) => (
@@ -73,8 +75,7 @@ export const AddNewHintModal = ({
         
         <SelectInputField
         label="Repeat mode"
-        name="Repeat mode"
-        value=''
+        name="repeatMode"
         >
           <MenuItem value='everyday'>Everyday</MenuItem>
           <MenuItem value='once a week'>Once a week</MenuItem>
