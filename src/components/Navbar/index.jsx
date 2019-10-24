@@ -20,9 +20,10 @@ const useStyles = makeStyles(theme => ({
       marginBottom: theme.spacing(2),
     },
     appBar: {
-        position: 'absolute',
+      position: 'absolute',
       top: 'auto',
       bottom: 0,
+      zIndex: 0
     },
     grow: {
       flexGrow: 1,

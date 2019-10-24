@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navbar } from '../Navbar';
 import { AddNewHabitModal } from '../AddNewHabitModal';
 import { HabitsList } from './HabitsList';
-import { Box, Button, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) =>
@@ -15,7 +15,8 @@ createStyles({
     border: '1px solid red',
     borderRadius: '5px',
     padding: '20px',
-    position: 'relative'
+    position: 'relative',
+    fontFamily: 'Lato'
   },
 }),
 );

@@ -35,13 +35,13 @@ export function InputField ({
         render={({field}) => {
   
           return (
-              <Select
-                label={label}
-                {...field}
-                {...props}
-              >
-                {children}
-              </Select>
+            <Select
+              label={label}
+              {...field}
+              {...props}
+            >
+              {children}
+            </Select>
           );
         }}
       />
