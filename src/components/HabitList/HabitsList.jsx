@@ -1,13 +1,21 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box, Button, Divider } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
   habitsList: {
     listStyleType: 'none',
-    padding: '0'
+    padding: '0',
+    width: '100%'
   },
+  habit: {
+    padding: '10px',
+
+    '& button': {
+      marginRight: '5px'
+    }
+  }
 }),
 );
 
@@ -16,24 +24,41 @@ export const HabitsList = ({habitsList}) => {
 const classes = useStyles();
 
   return (
+    
     <Box display="flex" justifyContent="space-between">
         <ul className={classes.habitsList}>
             {habitsList.map((habit, index) => (
-                <li key={index}>
-                    <Typography variant="h3">
-                        {habit.title}
-                    </Typography>
-                    <p>
+                <li key={index} className={classes.habit}>
+                  <Box display="flex" justifyContent="space-between">
+                    <Typography variant="h4">
+                          {habit.title}
+                      </Typography>
+                      <div>
+                      <Button
+                          variant="contained"
+                          color="primary"
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                  </Box>
+                    <Typography variant="h6">
                         {habit.description}
-                    </p>
-                    <p>
+                    </Typography>
+                    <Typography variant="body2">
                         {habit.repeatMode}
-                    </p>
-                    <button>Delete</button>
-                    <button>Edit</button>
+                    </Typography>
                 </li>
             ))}
+            <Divider />
         </ul>
+       
     </Box>
 
   );

@@ -11,12 +11,14 @@ createStyles({
     height: '600px',
     width: '500px',
     marginTop: '50px',
-    background: '#FCE4A6',
+    background: 'lavender',
     border: '1px solid red',
     borderRadius: '5px',
     padding: '20px',
     position: 'relative',
-    fontFamily: 'Lato'
+    fontFamily: 'Lato',
+    overflow: 'scroll'
+
   },
 }),
 );
@@ -30,14 +32,14 @@ export const HabitList = () => {
 
   return (
     <Box className={classes.mainContainer}>
-        <Box display="flex" justifyContent="space-between">
-        <Typography variant="h3">
-         Choose habit to track
-        </Typography>
-        </Box>
-        <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
-        <HabitsList habitsList={habitsList}/>
-        <Navbar onClick={ () => {setModalOpen(true)}} />
+      <Box display="flex" justifyContent="space-between">
+      <Typography variant="h3">
+        Choose habit to track
+      </Typography>
+      </Box>
+      <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
+      <HabitsList habitsList={habitsList}/>
+      <Navbar onClick={ () => {setModalOpen(true)}} />
     </Box>
   );
 };

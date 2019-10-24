@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, MenuItem, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField, SelectInputField } from '../InputField/index'
@@ -29,10 +29,11 @@ createStyles({
   formFields: {
     display: 'flex',
     flexDirection: 'column',
-    flexGrow: 1,
+    flexGrow: 2,
     width: '100%',
+    maxHeight: 400
+  },
 
-  }
 }),
 );
 
@@ -53,7 +54,7 @@ export const AddNewHabitModal = ({
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      height: 400,
+      height: 500,
       width: 300,
       padding: 30,
       maxHeight: '90vh',
@@ -73,29 +74,28 @@ export const AddNewHabitModal = ({
       </Typography>
       <CloseIcon onClick={onClose} className={classes.closeIcon} />
     </Box>
-
-
     
     <Formik 
     initialValues={{title: '', description: '', repeatMode: 'everyday'}}
     onSubmit={(values, actions) => {
       console.log(values);
       addNewHabit(values);
-      // updateHabitList(updatedHabitList);
+      actions.resetForm();
+      // onClose={onClose}
     }}
     render={(isSumbitting) => (
       <Form className={classes.formControl} >
         <div className={classes.formFields}>
-        <InputField
-          id="title"
-          name="title"
-          label="Habit title"
-          />
           <InputField
-          id="description"
-          name="description"
-          label="Habit description"
-          />
+            id="title"
+            name="title"
+            label="Habit title"
+            />
+            <InputField
+            id="description"
+            name="description"
+            label="Habit description"
+            />
           
           <SelectInputField
           label="Repeat mode"
@@ -105,20 +105,19 @@ export const AddNewHabitModal = ({
             <MenuItem value='once a week'>Once a week</MenuItem>
             <MenuItem value='once a month'>Once a month</MenuItem>
           </SelectInputField>
-
         </div>
 
-          <div>
-            <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            >
-              Submit
-            </Button>
-          </div>
+        <div >
+          <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          >
+            Submit
+          </Button>
+        </div>
 
-          <Persist name="addHabitForm" />
+        <Persist name="addHabitForm" />
       </Form>
       )}
       />

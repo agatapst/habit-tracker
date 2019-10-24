@@ -1,40 +1,61 @@
 import React from 'react';
 import { Field } from 'formik';
 import { TextField, Select } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-export function InputField ({
+const useStyles = makeStyles((theme) =>
+createStyles({
+  inputField: {
+    margin: 10,
+
+    '& *': {
+      width: '100%',
+    }
+  }
+}),
+);
+
+export const InputField = ({
     name,
     label,
     ...props
-  }) {
+  }) => {
+  
+    const classes = useStyles();
+
     return (
       <Field
         name={name}
         render={({field}) => {
           return (
+            <div className={classes.inputField}>
               <TextField
                 {...props}
                 {...field}
                 label={label}
               />
+            </div>
+
           );
         }}
       />
     );
   }
 
-  export function SelectInputField ({
+  export const SelectInputField = ({
     name,
     label,
     children,
     ...props
-  }) {
+  }) => {
+  const classes = useStyles();
     return (
       <Field
         name={name}
         render={({field}) => {
   
           return (
+          <div className={classes.inputField}>
             <Select
               label={label}
               {...field}
@@ -42,6 +63,8 @@ export function InputField ({
             >
               {children}
             </Select>
+          </div>
+
           );
         }}
       />
