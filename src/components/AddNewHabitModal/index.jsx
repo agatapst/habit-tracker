@@ -1,17 +1,15 @@
 import Modal from 'react-modal';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, MenuItem, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField, SelectInputField } from '../InputField/index'
-import { Persist } from 'formik-persist'
 import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
   root: {
     display: 'flex',
-
   },
   formControl: {
     display: 'flex',
@@ -81,7 +79,7 @@ export const AddNewHabitModal = ({
       console.log(values);
       addNewHabit(values);
       actions.resetForm();
-      // onClose={onClose}
+      onClose();
     }}
     render={(isSumbitting) => (
       <Form className={classes.formControl} >
@@ -116,7 +114,6 @@ export const AddNewHabitModal = ({
             Submit
           </Button>
         </div>
-
       </Form>
       )}
       />
@@ -125,5 +122,6 @@ export const AddNewHabitModal = ({
     };
     
     Modal.setAppElement('body')
+    
     
     

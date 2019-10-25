@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Button, Divider } from '@material-ui/core';
 
@@ -19,7 +19,7 @@ createStyles({
 }),
 );
 
-export const HabitsList = ({habitsList, deleteHabit}) => {
+export const HabitsList = ({habitsList, deleteHabit, editHabit}) => {
 
 const classes = useStyles();
 
@@ -36,6 +36,7 @@ const classes = useStyles();
                       <Button
                           variant="contained"
                           color="primary"
+                          onClick={() => editHabit(index)}
                         >
                           Edit
                         </Button>
@@ -54,9 +55,9 @@ const classes = useStyles();
                     <Typography variant="body2">
                         {habit.repeatMode}
                     </Typography>
+                    <Divider />
                 </li>
             ))}
-            <Divider />
         </ul>
     </Box>
 

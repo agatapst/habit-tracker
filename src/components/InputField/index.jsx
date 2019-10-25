@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'formik';
-import { TextField, Select } from '@material-ui/core';
+import { TextField, Select, InputLabel } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) =>
@@ -8,7 +8,7 @@ createStyles({
   inputField: {
     margin: 10,
 
-    '& *': {
+    '& > *': {
       width: '100%',
     }
   }
@@ -56,8 +56,10 @@ export const InputField = ({
   
           return (
           <div className={classes.inputField}>
+            <InputLabel htmlFor={name}>{label}</InputLabel>
             <Select
               label={label}
+              id={name}
               {...field}
               {...props}
             >
