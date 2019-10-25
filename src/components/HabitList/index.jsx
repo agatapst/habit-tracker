@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar';
 import { AddNewHabitModal } from '../AddNewHabitModal';
 import { HabitsList } from './HabitsList';
@@ -18,7 +18,6 @@ createStyles({
     position: 'relative',
     fontFamily: 'Lato',
     overflow: 'scroll'
-
   },
 }),
 );
@@ -28,7 +27,25 @@ export const HabitList = () => {
   const [habitsList, setHabitsList] = useState([]);
 
   const classes = useStyles();
+
+    
+  useEffect(() => {
+    const habits = localStorage.getItem('habitsList');
+     if(habits) {
+       setHabitsList(JSON.parse(habits))
+     }
+   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('habitsList', JSON.stringify(habitsList));
+  }, [habitsList]);
+
+
   const addNewHabit = habit => setHabitsList([...habitsList, habit]);
+
+  const deleteHabit = (indexToDelete) => {
+    setHabitsList(habitsList.filter((habit,index) => index !== indexToDelete))
+  }
 
   return (
     <Box className={classes.mainContainer}>
@@ -38,7 +55,7 @@ export const HabitList = () => {
       </Typography>
       </Box>
       <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
-      <HabitsList habitsList={habitsList}/>
+      <HabitsList habitsList={habitsList} deleteHabit={deleteHabit}/>
       <Navbar onClick={ () => {setModalOpen(true)}} />
     </Box>
   );

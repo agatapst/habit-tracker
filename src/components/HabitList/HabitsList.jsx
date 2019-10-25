@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Button, Divider } from '@material-ui/core';
 
@@ -19,12 +19,11 @@ createStyles({
 }),
 );
 
-export const HabitsList = ({habitsList}) => {
+export const HabitsList = ({habitsList, deleteHabit}) => {
 
 const classes = useStyles();
 
   return (
-    
     <Box display="flex" justifyContent="space-between">
         <ul className={classes.habitsList}>
             {habitsList.map((habit, index) => (
@@ -43,6 +42,7 @@ const classes = useStyles();
                         <Button
                           variant="contained"
                           color="secondary"
+                          onClick={() => deleteHabit(index)}
                         >
                           Delete
                         </Button>
@@ -58,7 +58,6 @@ const classes = useStyles();
             ))}
             <Divider />
         </ul>
-       
     </Box>
 
   );

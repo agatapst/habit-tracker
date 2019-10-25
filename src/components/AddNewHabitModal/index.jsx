@@ -117,7 +117,6 @@ export const AddNewHabitModal = ({
           </Button>
         </div>
 
-        <Persist name="addHabitForm" />
       </Form>
       )}
       />
