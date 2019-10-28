@@ -26,6 +26,8 @@ createStyles({
 export const HabitList = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [habitsList, setHabitsList] = useState([]);
+  const [filteredHabitsList, setFilteredHabitsList] = useState([])
+  const [query, setQuery] = useState('');
 
   const classes = useStyles();
 
@@ -41,8 +43,19 @@ export const HabitList = () => {
     localStorage.setItem('habitsList', JSON.stringify(habitsList));
   }, [habitsList]);
 
+  // if something needs to change based on change of other props & states -> useEffect
+  useEffect(() => {
+    const filteredHabits = habitsList.filter((habit) => {
+      return habit.title.toLowerCase().includes(query.toLowerCase());
+    });
+    setFilteredHabitsList(filteredHabits);
+  }, [habitsList, query])
 
-  const addNewHabit = habit => setHabitsList([...habitsList, habit]);
+
+  const addNewHabit = habit => { 
+    setHabitsList([...habitsList, habit]);
+    setQuery('')
+  }
 
   const deleteHabit = (indexToDelete) => {
     setHabitsList(habitsList.filter((habit,index) => index !== indexToDelete))
@@ -52,15 +65,6 @@ export const HabitList = () => {
     setModalOpen(true)
   }
 
-  const filterHabits = (query) => {
-    // console.log(habitsList)
-    const filteredHabits = habitsList.filter((habit) => {
-      return habit.title.toLowerCase().includes(query.toLowerCase());
-    });
-    console.log(filteredHabits)
-  }
-
-
   return (
     <Box className={classes.mainContainer}>
       <Box display="flex" justifyContent="space-between">
@@ -68,9 +72,10 @@ export const HabitList = () => {
           Choose habit to track
         </Typography>
       </Box>
-      <SearchBar onChange={ (e) => filterHabits(e.target.value)}/>
+      {/* controlled input */}
+      <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>
       <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
-      <HabitsList habitsList={habitsList} deleteHabit={deleteHabit} editHabit={editHabit}/>
+      <HabitsList habitsList={filteredHabitsList} deleteHabit={deleteHabit} editHabit={editHabit}/>
       <Navbar onClick={ () => {setModalOpen(true)}} />
     </Box>
   );
