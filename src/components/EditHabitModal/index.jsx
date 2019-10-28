@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) =>
 createStyles({
   root: {
     display: 'flex',
-
   },
   formControl: {
     display: 'flex',
@@ -32,14 +31,14 @@ createStyles({
     width: '100%',
     maxHeight: 400
   },
-
 }),
 );
 
-export const AddNewHabitModal = ({
+export const EditHabitModal = ({
   isOpen,
   onClose,
-  addNewHabit,
+  editHabit,
+  initialValues,
   children,
   ...props
 }) => {
@@ -75,10 +74,10 @@ export const AddNewHabitModal = ({
     </Box>
     
     <Formik 
-    initialValues={{title: '', description: '', repeatMode: 'everyday'}}
+    initialValues={initialValues}
     onSubmit={(values, actions) => {
       console.log(values);
-      addNewHabit(values);
+      editHabit(values)
       actions.resetForm();
       onClose();
     }}
@@ -112,7 +111,7 @@ export const AddNewHabitModal = ({
           variant="contained"
           color="primary"
           >
-            Submit
+            Save 
           </Button>
         </div>
       </Form>

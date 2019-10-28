@@ -5,6 +5,7 @@ import { Button, MenuItem, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField, SelectInputField } from '../InputField/index'
 import CloseIcon from '@material-ui/icons/Close';
+import uuid from "uuid/v4";
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -74,7 +75,7 @@ export const AddNewHabitModal = ({
     </Box>
     
     <Formik 
-    initialValues={{title: '', description: '', repeatMode: 'everyday'}}
+    initialValues={{title: '', description: '', repeatMode: 'everyday', id: uuid()}}
     onSubmit={(values, actions) => {
       console.log(values);
       addNewHabit(values);

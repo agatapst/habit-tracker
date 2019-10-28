@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar';
 import { AddNewHabitModal } from '../AddNewHabitModal';
+import { EditHabitModal } from '../EditHabitModal';
 import { SearchBar } from '../SearchBar';
 import { HabitsList } from './HabitsList';
 import { Box, Typography } from '@material-ui/core';
@@ -16,18 +17,18 @@ createStyles({
     border: '1px solid red',
     borderRadius: '5px',
     padding: '20px',
-    position: 'relative',
-    fontFamily: 'Lato',
-    overflow: 'scroll'
+    position: 'relative'
   },
 }),
 );
 
 export const HabitList = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [habitsList, setHabitsList] = useState([]);
   const [filteredHabitsList, setFilteredHabitsList] = useState([])
   const [query, setQuery] = useState('');
+  const [editedHabit, setEditedHabit] = useState(null);
 
   const classes = useStyles();
 
@@ -57,12 +58,18 @@ export const HabitList = () => {
     setQuery('')
   }
 
-  const deleteHabit = (indexToDelete) => {
-    setHabitsList(habitsList.filter((habit,index) => index !== indexToDelete))
+  const deleteHabit = (idToDelete) => {
+    setHabitsList(habitsList.filter((habit,id) => id !== idToDelete))
   }
 
-  const editHabit = (indexToEdit) => {
-    setModalOpen(true)
+  const openEditModal = (idToEdit) => {
+    setEditedHabit(habitsList.find(habit => habit.id === idToEdit));
+    setEditModalOpen(true)
+    console.log(idToEdit)
+  }
+
+  const editHabit = habit => {
+    Object.keys(habit).forEach(key => editedHabit[key] = habit[key])
   }
 
   return (
@@ -75,7 +82,8 @@ export const HabitList = () => {
       {/* controlled input */}
       <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>
       <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
-      <HabitsList habitsList={filteredHabitsList} deleteHabit={deleteHabit} editHabit={editHabit}/>
+      <EditHabitModal editHabit={editHabit} initialValues={editedHabit} isOpen={isEditModalOpen} onClose={ () => {setEditModalOpen(false)}} />
+      <HabitsList habitsList={filteredHabitsList} deleteHabit={deleteHabit} onEditButtonClick={openEditModal}/>
       <Navbar onClick={ () => {setModalOpen(true)}} />
     </Box>
   );

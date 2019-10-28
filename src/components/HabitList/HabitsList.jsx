@@ -7,7 +7,9 @@ createStyles({
   habitsList: {
     listStyleType: 'none',
     padding: '0',
-    width: '100%'
+    width: '100%',
+    height: '420px',
+    overflow: 'scroll'
   },
   habit: {
     padding: '10px',
@@ -19,7 +21,7 @@ createStyles({
 }),
 );
 
-export const HabitsList = ({habitsList, deleteHabit, editHabit}) => {
+export const HabitsList = ({habitsList, deleteHabit, onEditButtonClick}) => {
 
 const classes = useStyles();
 
@@ -36,7 +38,7 @@ const classes = useStyles();
                       <Button
                           variant="contained"
                           color="primary"
-                          onClick={() => editHabit(index)}
+                          onClick={() => onEditButtonClick(habit.id)}
                         >
                           Edit
                         </Button>
