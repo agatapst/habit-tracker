@@ -35,6 +35,9 @@ const classes = useStyles();
                           {habit.title}
                       </Typography>
                       <div>
+                        {habit.category}
+                      </div>
+                      <div>
                       <Button
                           variant="contained"
                           color="primary"

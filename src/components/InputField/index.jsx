@@ -72,3 +72,31 @@ export const InputField = ({
       />
     );
   }
+
+  export const IconsSelectField = ({
+    name,
+    label,
+    children,
+    ...props
+  }) => {
+  const classes = useStyles();
+    return (
+      <Field
+        name={name}
+        render={({field}) => {
+  
+          return (
+          <div className={classes.inputField}>
+            <InputLabel htmlFor={name}>{label}</InputLabel>
+            <TextField
+                {...props}
+                {...field}
+                label={label}
+              />
+          </div>
+
+          );
+        }}
+      />
+    );
+  }

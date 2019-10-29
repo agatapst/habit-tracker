@@ -4,8 +4,10 @@ import React from 'react';
 import { Button, MenuItem, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField, SelectInputField } from '../InputField/index'
+import { IconsField } from '../IconsField/index'
 import CloseIcon from '@material-ui/icons/Close';
 import uuid from "uuid/v4";
+
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -75,7 +77,7 @@ export const AddNewHabitModal = ({
     </Box>
     
     <Formik 
-    initialValues={{title: '', description: '', repeatMode: 'everyday', id: uuid()}}
+    initialValues={{title: '', description: '', repeatMode: 'everyday', id: uuid(), category: 'sleep'}}
     onSubmit={(values, actions) => {
       console.log(values);
       addNewHabit(values);
@@ -104,6 +106,9 @@ export const AddNewHabitModal = ({
             <MenuItem value='once a week'>Once a week</MenuItem>
             <MenuItem value='once a month'>Once a month</MenuItem>
           </SelectInputField>
+
+        <IconsField id="category" name="category"/>
+
         </div>
 
         <div >
