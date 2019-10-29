@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Button, Divider } from '@material-ui/core';
+import { CategoryIcon } from "../CategoryIcon"
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -35,7 +36,7 @@ const classes = useStyles();
                           {habit.title}
                       </Typography>
                       <div>
-                        {habit.category}
+                      <CategoryIcon category={habit.category} />
                       </div>
                       <div>
                       <Button
