@@ -4,6 +4,8 @@ import { IconButton, Fab, Toolbar, AppBar } from '@material-ui/core/';
 import HomeIcon from '@material-ui/icons/Home';
 import AddIcon from '@material-ui/icons/Add';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Link } from 'react-router-dom';
+import { route } from '../../config/routes';
 
 const useStyles = makeStyles(theme => ({
     text: {
@@ -41,16 +43,21 @@ export const Navbar = ({onClick}) => {
   return (
     <AppBar color="primary" className={classes.appBar}>
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="open drawer">
-            <HomeIcon />
-          </IconButton>
+          <Link to={route.root()}>
+            <IconButton edge="start" color="inherit" aria-label="open drawer">
+              <HomeIcon />
+            </IconButton>
+          </Link>
           <Fab color="secondary" aria-label="add" className={classes.fabButton} onClick={onClick}>
             <AddIcon />
           </Fab>
           <div className={classes.grow} />
+          <Link to={route.list()}>
           <IconButton edge="end" color="inherit">
             <MoreIcon />
           </IconButton>
+        </Link>
+
         </Toolbar>
       </AppBar>
   );
