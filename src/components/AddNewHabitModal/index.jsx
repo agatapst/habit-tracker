@@ -109,7 +109,6 @@ export const AddNewHabitModal = ({
           </SelectInputField>
 
         <CategoriesField id="category" name="category"/>
-        <DatePicker />
         </div>
 
         <div >

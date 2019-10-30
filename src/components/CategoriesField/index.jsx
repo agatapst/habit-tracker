@@ -7,6 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { CategoryIcon, categoriesList } from "../CategoryIcon"
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -24,6 +25,7 @@ export const CategoriesField = ({
     name,
     label,
     value,
+    tooltip,
     ...props
   }) => {
   
@@ -45,11 +47,13 @@ export const CategoriesField = ({
                         {...field}
                         >
                           {categoriesList.map(category => (
-                            <FormControlLabel 
-                              key={category} 
-                              value={category} 
-                              control={<Radio icon={<CategoryIcon category={category} />} 
-                              checkedIcon={<CategoryIcon category={category} />}/>} />
+                            <Tooltip key={category} title={category}>
+                              <FormControlLabel 
+                                key={category} 
+                                value={category} 
+                                control={<Radio icon={<CategoryIcon category={category} />} 
+                                checkedIcon={<CategoryIcon category={category} />}/>} />
+                          </Tooltip>
                           ))}
                         </RadioGroup>
                 </FormControl>

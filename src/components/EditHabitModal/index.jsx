@@ -5,6 +5,7 @@ import { Button, MenuItem, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField, SelectInputField } from '../InputField/index'
 import CloseIcon from '@material-ui/icons/Close';
+import { CategoriesField } from '../CategoriesField'
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -103,6 +104,8 @@ export const EditHabitModal = ({
             <MenuItem value='once a week'>Once a week</MenuItem>
             <MenuItem value='once a month'>Once a month</MenuItem>
           </SelectInputField>
+
+          <CategoriesField id="category" name="category"/>
         </div>
 
         <div >

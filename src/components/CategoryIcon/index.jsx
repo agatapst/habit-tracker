@@ -9,6 +9,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LocalDrinkIcon from '@material-ui/icons/LocalDrink';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import MoodIcon from '@material-ui/icons/Mood';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const iconForCategory = {
     education: SchoolIcon,
@@ -23,12 +24,33 @@ const iconForCategory = {
     entertainment: MoodIcon,
 }
 
+const tooltipForCategory = {
+    education: 'education',
+    sports: 'sports',
+    sleep: 'sleep',
+    selfCare: 'self care',
+    eatingAndCooking: 'eating&cooking',
+    nature: 'nature',
+    programming: 'programming',
+    music: 'music',
+    drinking: 'drinking',
+    entertainment: 'entertainment'
+}
+
 export const categoriesList = Object.keys(iconForCategory);
+
+export const tooltipsList = Object.keys(tooltipForCategory);
 
 export const CategoryIcon = ({category, ...props}) => {
     const IconClass = iconForCategory[category];
+    const TooltipClass = tooltipForCategory[category];
+
     if(IconClass) {
-        return <IconClass {...props} />
+        return (
+            <Tooltip title={TooltipClass} >
+                <IconClass {...props} />
+            </Tooltip>
+        )
     } else {
         return null;
     }
