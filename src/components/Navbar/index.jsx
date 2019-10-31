@@ -53,10 +53,10 @@ export const Navbar = ({onClick}) => {
           </Fab>
           <div className={classes.grow} />
           <Link to={route.list()}>
-          <IconButton edge="end" color="inherit">
-            <MoreIcon />
-          </IconButton>
-        </Link>
+            <IconButton edge="end" color="inherit">
+              <MoreIcon />
+            </IconButton>
+          </Link>
 
         </Toolbar>
       </AppBar>

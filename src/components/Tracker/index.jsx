@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar';
 import { HabitsToTrack } from './HabitsToTrack';
+import { CheckboxField } from '../CheckboxField';
 import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
