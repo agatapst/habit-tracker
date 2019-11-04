@@ -1,10 +1,10 @@
 import Modal from 'react-modal';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import { Button, MenuItem, Box, Typography } from "@material-ui/core";
+import { Button, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
-import { InputField, SelectInputField } from '../InputField'
-import { DatePicker } from '../DatePicker'
+import { InputField } from '../InputField'
+// import { DatePicker } from '../DatePicker'
 import { CategoriesField } from '../CategoriesField'
 import CloseIcon from '@material-ui/icons/Close';
 import uuid from "uuid/v4";
@@ -33,9 +33,8 @@ createStyles({
     flexDirection: 'column',
     flexGrow: 2,
     width: '100%',
-    maxHeight: 400
+    maxHeight: 290
   },
-
 }),
 );
 
@@ -56,7 +55,7 @@ export const AddNewHabitModal = ({
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      height: 500,
+      height: 380,
       width: 300,
       padding: 30,
       maxHeight: '90vh',
@@ -78,7 +77,7 @@ export const AddNewHabitModal = ({
     </Box>
     
     <Formik 
-    initialValues={{title: '', description: '', repeatMode: 'everyday', id: uuid(), category: ''}}
+    initialValues={{title: '', description: '', id: uuid(), category: ''}}
     onSubmit={(values, actions) => {
       console.log(values);
       addNewHabit(values);
@@ -86,7 +85,7 @@ export const AddNewHabitModal = ({
       onClose();
     }}
     render={(isSumbitting) => (
-      <Form className={classes.formControl} >
+      <Form className={classes.formControl}>
         <div className={classes.formFields}>
           <InputField
             id="title"
@@ -99,19 +98,19 @@ export const AddNewHabitModal = ({
             label="Habit description"
             />
           
-          <SelectInputField
+          {/* <SelectInputField
           label="Repeat mode"
           name="repeatMode"
           >
             <MenuItem value='everyday'>Everyday</MenuItem>
             <MenuItem value='once a week'>Once a week</MenuItem>
             <MenuItem value='once a month'>Once a month</MenuItem>
-          </SelectInputField>
+          </SelectInputField> */}
 
         <CategoriesField id="category" name="category"/>
         </div>
 
-        <div >
+        <>
           <Button
           type="submit"
           variant="contained"
@@ -119,7 +118,7 @@ export const AddNewHabitModal = ({
           >
             Submit
           </Button>
-        </div>
+        </>
       </Form>
       )}
       />

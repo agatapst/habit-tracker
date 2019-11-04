@@ -1,5 +1,3 @@
-import range from 'lodash/range';
-
 export const appConfig = {
   weekDays: [
     { label: 'Monday', value: 'Monday' },

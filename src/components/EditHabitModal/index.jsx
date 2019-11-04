@@ -1,9 +1,9 @@
 import Modal from 'react-modal';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import { Button, MenuItem, Box, Typography } from "@material-ui/core";
+import { Button, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
-import { InputField, SelectInputField } from '../InputField/index'
+import { InputField } from '../InputField/index'
 import CloseIcon from '@material-ui/icons/Close';
 import { CategoriesField } from '../CategoriesField'
 
@@ -30,7 +30,7 @@ createStyles({
     flexDirection: 'column',
     flexGrow: 2,
     width: '100%',
-    maxHeight: 400
+    maxHeight: 290
   },
 }),
 );
@@ -53,7 +53,7 @@ export const EditHabitModal = ({
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      height: 500,
+      height: 380,
       width: 300,
       padding: 30,
       maxHeight: '90vh',
@@ -96,14 +96,14 @@ export const EditHabitModal = ({
             label="Habit description"
             />
           
-          <SelectInputField
+          {/* <SelectInputField
           label="Repeat mode"
           name="repeatMode"
           >
             <MenuItem value='everyday'>Everyday</MenuItem>
             <MenuItem value='once a week'>Once a week</MenuItem>
             <MenuItem value='once a month'>Once a month</MenuItem>
-          </SelectInputField>
+          </SelectInputField> */}
 
           <CategoriesField id="category" name="category"/>
         </div>

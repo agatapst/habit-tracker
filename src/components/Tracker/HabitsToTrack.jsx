@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Typography, Box, Divider, Checkbox } from '@material-ui/core';
-import { CategoryIcon } from "../CategoryIcon"
+import { Typography, Box, Divider } from '@material-ui/core';
+// import { CategoryIcon } from "../CategoryIcon"
 import { CheckboxField } from '../CheckboxField';
 import { Formik, Form } from 'formik';
 
@@ -30,7 +30,7 @@ const classes = useStyles();
 
   return (
     <Formik 
-    initialValues={{checkbox: ''}}
+    initialValues={{}}
     onSubmit={(values, actions) => {
       console.log(values);
     }}
@@ -38,10 +38,9 @@ const classes = useStyles();
       <Form className={classes.formControl} >
         <Box display="flex" justifyContent="space-between">
             <ul className={classes.habitsList}>
-                <p>Today</p>
                 {habitsList.map((habit, index) => (
                     <li key={index} className={classes.habit}>
-                      <Box display="flex" justifyContent="space-between">
+                      <Box display="flex" alignItems="center">
                       <div className={classes.formFields}>
                         <CheckboxField
                         id="checkbox"
@@ -52,9 +51,9 @@ const classes = useStyles();
                         <Typography variant="body1" align="left">
                               {habit.title}
                           </Typography>
-                          <div>
+                          {/* <div>
                           <CategoryIcon category={habit.category} />
-                          </div>
+                          </div> */}
                       </Box>
                         <Divider />
                     </li>

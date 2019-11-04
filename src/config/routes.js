@@ -1,4 +1,4 @@
 export const route = {
-    root: () => '/',
+    root: () => '/main',
     list: () => '/list'
   };

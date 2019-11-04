@@ -1,16 +1,12 @@
 import React from 'react';
 import { Field } from 'formik';
-import { TextField, Select, InputLabel, Checkbox } from '@material-ui/core';
+import { Checkbox } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
   inputField: {
     margin: 10,
-
-    '& > *': {
-      width: '100%',
-    }
   }
 }),
 );
@@ -27,17 +23,17 @@ export const CheckboxField = ({
     return (
       <Field
         name={name}
-        render={({field}) => {
+        render={({field: { value, ...field }}) => {
           return (
             <div className={classes.inputField}>
               <Checkbox
-                {...props}
                 {...field}
+                {...props}
                 label={label}
-                // checked={ () => console.log('checked')}
+                checked={value}
+                onChange={() => console.log(value)}
               />
             </div>
-
           );
         }}
       />

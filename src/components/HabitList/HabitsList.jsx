@@ -58,9 +58,9 @@ const classes = useStyles();
                     <Typography variant="h6">
                         {habit.description}
                     </Typography>
-                    <Typography variant="body2">
+                    {/* <Typography variant="body2">
                         {habit.repeatMode}
-                    </Typography>
+                    </Typography> */}
                     <Divider />
                 </li>
             ))}
