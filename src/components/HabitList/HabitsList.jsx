@@ -2,6 +2,9 @@ import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Button, Divider } from '@material-ui/core';
 import { CategoryIcon } from "../CategoryIcon"
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -15,8 +18,9 @@ createStyles({
   habit: {
     padding: '10px',
 
-    '& button': {
-      marginRight: '5px'
+    '& svg': {
+      marginRight: '5px',
+      cursor: 'pointer'
     }
   }
 }),
@@ -31,31 +35,31 @@ const classes = useStyles();
         <ul className={classes.habitsList}>
             {habitsList.map((habit, index) => (
                 <li key={index} className={classes.habit}>
-                  <Box display="flex" justifyContent="space-between">
-                    <Typography variant="h4">
+                  <Box display="flex" justifyContent="space-between" flex="1">
+                    <Box display="flex" flexDirection="row" justifyContent="space-around">
+                      <CategoryIcon category={habit.category} />
+                      <Typography variant="subtitle1">
                           {habit.title}
                       </Typography>
+                    </Box>
                       <div>
-                      <CategoryIcon category={habit.category} />
-                      </div>
-                      <div>
-                      <Button
+                      <Tooltip title='edit' >
+                        <EditIcon
                           variant="contained"
                           color="primary"
                           onClick={() => onEditButtonClick(habit.id)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
+                        />
+                      </Tooltip>
+                      <Tooltip title="delete">
+                        <DeleteIcon
                           variant="contained"
                           color="secondary"
                           onClick={() => deleteHabit(index)}
-                        >
-                          Delete
-                        </Button>
+                          />
+                      </Tooltip>
                       </div>
                   </Box>
-                    <Typography variant="h6">
+                    <Typography variant="body2">
                         {habit.description}
                     </Typography>
                     {/* <Typography variant="body2">
