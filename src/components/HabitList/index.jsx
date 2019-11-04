@@ -68,15 +68,15 @@ export const HabitList = () => {
     console.log(idToEdit)
   }
 
-  const editHabit = habit => {
-    Object.keys(habit).forEach(key => editedHabit[key] = habit[key])
+  const editHabit = habitAttributes => {
+    setHabitsList(habitsList.map(habit => habit.id === editedHabit.id ? {...editedHabit, ...habitAttributes} : habit))
   }
 
   return (
     <Box className={classes.mainContainer}>
       <Box display="flex" justifyContent="space-between">
         <Typography variant="h3">
-          Choose habit to track
+          Manage your habits
         </Typography>
       </Box>
       {/* controlled input */}
