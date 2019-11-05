@@ -3,6 +3,7 @@ import { Navbar } from '../Navbar';
 import { HabitsToTrack } from './HabitsToTrack';
 import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { appConfig } from '../../config/appConfig'
 import moment from 'moment';
 
 const useStyles = makeStyles((theme) =>
@@ -17,6 +18,9 @@ createStyles({
     padding: '20px',
     position: 'relative'
   },
+  todayWeekday: {
+    background: 'red'
+  }
 }),
 );
 
@@ -25,7 +29,14 @@ export const Tracker = () => {
 
   const classes = useStyles();
 
-    
+  const today = moment().format('YYYY-MM-DD');
+  const weekdays = moment.weekdays()
+
+  const isTodayWeekday = (weekday) => {
+    const todayWeekday = moment().format('dddd');
+    return weekday === todayWeekday
+  }
+
   useEffect(() => {
     const habits = localStorage.getItem('habitsList');
      if(habits) {
@@ -38,7 +49,6 @@ export const Tracker = () => {
   }, [habitsList]);
 
   const handleTrackHabit = (trackedHabit, isTracked) => {
-    const today = moment().format('YYYY-MM-DD');
     const trackedDays = new Set(trackedHabit.trackedDays);
     isTracked ? trackedDays.add(today) : trackedDays.delete(today);
 
@@ -56,7 +66,19 @@ export const Tracker = () => {
           Track your habits
         </Typography>
       </Box>
-      {/* controlled input */}
+      <div>Today is: {today}</div>
+      <div>
+        Weekdays abbreviations are: { appConfig.weekdaysMin.map((weekday, index) => (
+        <span key={index}>{weekday}</span>
+      ))}
+      </div>
+      <div>
+          <ul>
+            {weekdays.map((weekday, index) => (
+              <li key={index} style={{color: isTodayWeekday(weekday) ? 'red' : 'black'}}>{weekday}</li>
+            ))}
+          </ul>
+      </div>
       <HabitsToTrack habitsList={habitsList} onTrackHabit={handleTrackHabit} />
       <Navbar/>
     </Box> 

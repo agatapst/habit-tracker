@@ -8,5 +8,6 @@ export const appConfig = {
     { label: 'Saturday', value: 'Saturday' },
     { label: 'Sunday', value: 'Sunday' }
   ],
-  days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  weekdaysMin: ['Mn', 'Tu', 'Wd', 'Th', 'Fr', 'Sa', 'Su']
 };
