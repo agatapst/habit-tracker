@@ -4,6 +4,7 @@ import { HabitsToTrack } from './HabitsToTrack';
 import { CheckboxField } from '../CheckboxField';
 import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -47,16 +48,28 @@ export const Tracker = () => {
     setFilteredHabitsList(filteredHabits);
   }, [habitsList, query])
 
+  const handleTrackHabit = (trackedHabit, isTracked) => {
+    const today = moment().format('YYYY-MM-DD');
+    const trackedDays = new Set(trackedHabit.trackedDays);
+    isTracked ? trackedDays.add(today) : trackedDays.delete(today);
+
+    setHabitsList(habitsList.map(habit => 
+      habit.id === trackedHabit.id ? 
+        {...trackedHabit, trackedDays: [...trackedDays]} : 
+        habit
+    ))
+  }
+
   return (
     <Box className={classes.mainContainer}>
       <Box display="flex" justifyContent="space-between">
         <Typography variant="h3">
-          Your habits
+          Track your habits
         </Typography>
       </Box>
       {/* controlled input */}
-      <HabitsToTrack habitsList={filteredHabitsList}/>
+      <HabitsToTrack habitsList={filteredHabitsList} onTrackHabit={handleTrackHabit} />
       <Navbar/>
-    </Box>
+    </Box> 
   );
 };

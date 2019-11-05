@@ -2,8 +2,8 @@ import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Divider } from '@material-ui/core';
 // import { CategoryIcon } from "../CategoryIcon"
-import { CheckboxField } from '../CheckboxField';
-import { Formik, Form } from 'formik';
+import { Checkbox } from '@material-ui/core';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -24,44 +24,39 @@ createStyles({
 }),
 );
 
-export const HabitsToTrack = ({habitsList, deleteHabit, onEditButtonClick}) => {
+export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
 
-const classes = useStyles();
+  const classes = useStyles();
+
+  const isHabitChecked = (habit) => {
+    const today = moment().format('YYYY-MM-DD');
+    return habit.trackedDays && habit.trackedDays.includes(today);
+  };
 
   return (
-    <Formik 
-    initialValues={{}}
-    onSubmit={(values, actions) => {
-      console.log(values);
-    }}
-    render={(isSumbitting) => (
-      <Form className={classes.formControl} >
-        <Box display="flex" justifyContent="space-between">
-            <ul className={classes.habitsList}>
-                {habitsList.map((habit, index) => (
-                    <li key={index} className={classes.habit}>
-                      <Box display="flex" alignItems="center">
-                      <div className={classes.formFields}>
-                        <CheckboxField
-                        id="checkbox"
-                        name="checkbox"
-                        label="Habit description"
-                        />
-                      </div>
-                        <Typography variant="body1" align="left">
-                              {habit.title}
-                          </Typography>
-                          {/* <div>
-                          <CategoryIcon category={habit.category} />
-                          </div> */}
-                      </Box>
-                        <Divider />
-                    </li>
-                ))}
-            </ul>
+    <Box className={classes.formControl} >
+      <Box display="flex" justifyContent="space-between">
+          <ul className={classes.habitsList}>
+              {habitsList.map((habit, index) => (
+                  <li key={index} className={classes.habit}>
+                    <Box display="flex" alignItems="center">
+                    <div className={classes.formFields}>
+                      <Checkbox 
+                        checked={isHabitChecked(habit)} 
+                        onChange={(e) => onTrackHabit(habit, e.target.checked)}/>
+                    </div>
+                      <Typography variant="body1" align="left">
+                            {habit.title}
+                        </Typography>
+                        {/* <div>
+                        <CategoryIcon category={habit.category} />
+                        </div> */}
+                    </Box>
+                      <Divider />
+                  </li>
+              ))}
+          </ul>
         </Box>
-  </Form>
-  )}
-  />
+      </Box>
   );
 };
