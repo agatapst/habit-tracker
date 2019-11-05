@@ -1,10 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { IconButton, Fab, Toolbar, AppBar } from '@material-ui/core/';
+import { IconButton, Toolbar, AppBar } from '@material-ui/core/';
 import HomeIcon from '@material-ui/icons/Home';
-import AddIcon from '@material-ui/icons/Add';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { AddButton, AddButtonThatHides } from '../AddButton';
+import { AddButtonThatHides } from '../AddButton';
 import { Link } from 'react-router-dom';
 import { route } from '../../config/routes';
 
@@ -48,18 +47,14 @@ export const Navbar = ({onClick}) => {
   return (
     <AppBar color="primary" className={classes.appBar}>
         <Toolbar>
-          <Link to={route.root()}>
-            <IconButton edge="start" color="default" aria-label="open drawer" href={route.root()}>
-              <HomeIcon />
-            </IconButton>
-          </Link>
+          <IconButton edge="start" color="default" aria-label="open drawer" component={Link} to={route.root()}>
+            <HomeIcon />
+          </IconButton>
           <AddButtonThatHides onClick={onClick}/>
           <div className={classes.grow} />
-          <Link to={route.list()}>
-            <IconButton edge="end" color="default">
-              <MoreIcon />
-            </IconButton>
-          </Link>
+          <IconButton edge="end" color="default" component={Link} to={route.list()}>
+            <MoreIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
   );

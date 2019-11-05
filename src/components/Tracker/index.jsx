@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar';
 import { HabitsToTrack } from './HabitsToTrack';
-import { CheckboxField } from '../CheckboxField';
 import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import moment from 'moment';
@@ -23,8 +22,6 @@ createStyles({
 
 export const Tracker = () => {
   const [habitsList, setHabitsList] = useState([]);
-  const [filteredHabitsList, setFilteredHabitsList] = useState([])
-  const [query, setQuery] = useState('');
 
   const classes = useStyles();
 
@@ -39,14 +36,6 @@ export const Tracker = () => {
   useEffect(() => {
     localStorage.setItem('habitsList', JSON.stringify(habitsList));
   }, [habitsList]);
-
-  // if something needs to change based on change of other props & states -> useEffect
-  useEffect(() => {
-    const filteredHabits = habitsList.filter((habit) => {
-      return habit.title.toLowerCase().includes(query.toLowerCase());
-    });
-    setFilteredHabitsList(filteredHabits);
-  }, [habitsList, query])
 
   const handleTrackHabit = (trackedHabit, isTracked) => {
     const today = moment().format('YYYY-MM-DD');
@@ -68,7 +57,7 @@ export const Tracker = () => {
         </Typography>
       </Box>
       {/* controlled input */}
-      <HabitsToTrack habitsList={filteredHabitsList} onTrackHabit={handleTrackHabit} />
+      <HabitsToTrack habitsList={habitsList} onTrackHabit={handleTrackHabit} />
       <Navbar/>
     </Box> 
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Typography, Box, Button, Divider } from '@material-ui/core';
+import { Typography, Box, Divider } from '@material-ui/core';
 import { CategoryIcon } from "../CategoryIcon"
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
