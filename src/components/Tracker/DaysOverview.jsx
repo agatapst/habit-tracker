@@ -5,7 +5,7 @@ import moment from 'moment';
 
 export const DaysOverview = ({days, trackedDays}) => {
   
-  const isChecked = day => trackedDays.includes(day.format('YYYY-MM-DD'));
+  const isChecked = day => trackedDays && trackedDays.includes(day.format('YYYY-MM-DD'));
   const isToday = day => day.isSame(moment(), "day");
   const formatDate = day => day.format('ddd');
 

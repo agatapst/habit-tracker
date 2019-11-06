@@ -22,6 +22,11 @@ createStyles({
 }),
 );
 
+const DEFAULT_HABITS = [
+  {"id":"1", "title":"Pójść na spacer","description":"Minimum 5 kilometrów","category":"sports","trackedDays":["2019-11-04", "2019-11-05"]},
+  {"id":"2", "title":"Joga","description":"","category":"selfCare","trackedDays":["2019-11-05", "2019-11-06"]},
+]
+
 export const HabitList = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
@@ -35,8 +40,10 @@ export const HabitList = () => {
     
   useEffect(() => {
     const habits = localStorage.getItem('habitsList');
-     if(habits) {
+     if(habits && habits !== "[]") {
        setHabitsList(JSON.parse(habits))
+     } else {
+      setHabitsList(DEFAULT_HABITS)
      }
    }, [])
 
