@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Divider } from '@material-ui/core';
 // import { CategoryIcon } from "../CategoryIcon"
 import { Checkbox } from '@material-ui/core';
-import moment from 'moment';
+import moment, { locale } from 'moment';
+import 'moment/locale/en-gb';
+import { DaysOverview } from './DaysOverview';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -25,8 +27,14 @@ createStyles({
 );
 
 export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
-
   const classes = useStyles();
+  const [currentWeekDays, setCurrentWeekDays] = useState([]);
+
+  useEffect(() => {
+    locale('en-gb');
+    const firstDayOfWeek = moment().startOf('week');
+    setCurrentWeekDays([...Array(7)].map((_, i) => moment(firstDayOfWeek).add(i, 'day')));
+  }, []);
 
   const isHabitChecked = (habit) => {
     const today = moment().format('YYYY-MM-DD');
@@ -52,7 +60,8 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
                         <CategoryIcon category={habit.category} />
                         </div> */}
                     </Box>
-                      <Divider />
+                    <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
+                    <Divider />
                   </li>
               ))}
           </ul>
