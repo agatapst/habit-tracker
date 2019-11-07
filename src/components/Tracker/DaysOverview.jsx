@@ -2,6 +2,8 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import { Checkbox } from '@material-ui/core';
 import moment from 'moment';
+import { CustomCheckbox, CustomStyles } from '../Checkbox'
+import { colors } from '../../styles/variables';
 
 export const DaysOverview = ({days, trackedDays}) => {
   
@@ -10,13 +12,12 @@ export const DaysOverview = ({days, trackedDays}) => {
   const formatDate = day => day.format('ddd');
 
   return (
-    <div>
+    <div style={{background: colors.mainRed, borderRadius: '20px'}}>
       <ul style={{padding: 0, display: 'table', width: '100%'}}>
         {days.map((day, index) => (
           <li key={index} style={{display: 'table-cell', color: isToday(day) ? 'red' : 'black'}}>
           <Box display="flex" flexDirection="column">
-            <Checkbox disabled={true} checked={isChecked(day)} />
-            <span style={{textAlign: 'center'}}>{formatDate(day)}</span>
+            <CustomCheckbox disabled={true} checked={isChecked(day)} />
           </Box>
           </li>
         ))}

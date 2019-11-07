@@ -13,7 +13,7 @@ createStyles({
     height: '600px',
     width: '500px',
     marginTop: '50px',
-    background: 'lavender',
+    background: '#DF9357',
     border: '1px solid red',
     borderRadius: '5px',
     padding: '20px',
