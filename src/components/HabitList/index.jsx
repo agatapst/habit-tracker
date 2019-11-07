@@ -3,23 +3,14 @@ import { Navbar } from '../Navbar';
 import { AddNewHabitModal } from '../AddNewHabitModal';
 import { EditHabitModal } from '../EditHabitModal';
 import { SearchBar } from '../SearchBar';
+import { Container } from '../Container';
 import { HabitsList } from './HabitsList';
 import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
-  mainContainer: {
-    height: '600px',
-    width: '500px',
-    marginTop: '50px',
-    background: '#DF9357',
-    border: '1px solid red',
-    borderRadius: '5px',
-    padding: '20px',
-    position: 'relative'
-  },
-}),
+  }),
 );
 
 const DEFAULT_HABITS = [
@@ -80,7 +71,7 @@ export const HabitList = () => {
   }
 
   return (
-    <Box className={classes.mainContainer}>
+    <Container>
       <Box display="flex" justifyContent="space-between">
         <Typography variant="h3">
           Manage your habits
@@ -92,6 +83,6 @@ export const HabitList = () => {
       <EditHabitModal editHabit={editHabit} initialValues={editedHabit} isOpen={isEditModalOpen} onClose={ () => {setEditModalOpen(false)}} />
       <HabitsList habitsList={filteredHabitsList} deleteHabit={deleteHabit} onEditButtonClick={openEditModal}/>
       <Navbar onClick={ () => {setModalOpen(true)}} />
-    </Box>
+    </Container>
   );
 };

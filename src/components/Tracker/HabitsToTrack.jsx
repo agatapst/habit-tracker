@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { Typography, Box, Divider, Switch } from '@material-ui/core';
-import { Checkbox } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import moment, { locale } from 'moment';
 import 'moment/locale/en-gb';
 import { DaysOverview } from './DaysOverview';
-import { CustomCheckbox, CustomStyles } from '../Checkbox'
+import { CustomCheckbox } from '../Checkbox'
 
 const useStyles = makeStyles((theme) =>
 createStyles({
   habitsList: {
     listStyleType: 'none',
-    padding: '0',
+    padding: 0,
     width: '100%',
-    height: '485px',
-    overflow: 'scroll'
+    height: '440px',
+    overflow: 'scroll',
+    margin: 0
   },
   habit: {
     padding: '10px',
@@ -42,8 +42,8 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
   };
 
   return (
-    <Box className={classes.formControl} >
-      <Box display="flex" justifyContent="space-between">
+      <Box display="flex" flexDirection="column">
+        <h4 style={{margin: 0}}>HABITS FOR TODAY</h4>
         <ul className={classes.habitsList}>
           {habitsList.map((habit, index) => (
             <li key={index} className={classes.habit}>
@@ -56,11 +56,10 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
                 </Typography>
               </Box>
               <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
-              <Divider />
+              {/* <Divider /> */}
             </li>
           ))}
         </ul>
       </Box>
-    </Box>
   );
 };

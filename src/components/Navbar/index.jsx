@@ -6,6 +6,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import { AddButtonThatHides } from '../AddButton';
 import { Link } from 'react-router-dom';
 import { route } from '../../config/routes';
+import { colors } from '../../styles/variables';
 
 const useStyles = makeStyles(theme => ({
     text: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
       top: 'auto',
       bottom: 0,
       zIndex: 0,
+      background: colors.mainRed,
 
       '& > svg': {
         color: 'white'
@@ -45,7 +47,7 @@ export const Navbar = ({onClick}) => {
   const classes = useStyles();
 
   return (
-    <AppBar color="primary" className={classes.appBar}>
+    <AppBar className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" color="default" aria-label="open drawer" component={Link} to={route.root()}>
             <HomeIcon />

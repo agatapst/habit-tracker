@@ -6,6 +6,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { appConfig } from '../../config/appConfig'
 import moment from 'moment';
 import { WeekView } from '../WeekView';
+import { Container } from '../Container';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -64,15 +65,14 @@ export const Tracker = () => {
   }
 
   return (
-    <Box className={classes.mainContainer}>
+    <Container>
       <Box display="flex" flexDirection="column">
       <WeekView days={currentWeekDays} />
       {/* <div>Week: {startWeekday} - {endWeekday} <button>Set monthly view</button></div>
       <div>Month: {month} <button>Set weekly view</button></div> */}
-      <h4>HABITS FOR TODAY</h4>
       </Box>
       <HabitsToTrack habitsList={habitsList} onTrackHabit={handleTrackHabit} />
       <Navbar/>
-    </Box> 
+    </Container>
   );
 };
