@@ -28,9 +28,6 @@ createStyles({
 export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
   const classes = useStyles();
   const [currentWeekDays, setCurrentWeekDays] = useState([]);
-  const startWeekday = moment().startOf('week').format('DD-MM-YYYY');
-  const endWeekday = moment().endOf('week').format('DD-MM-YYYY');
-  const month = moment().format('MMMM');
 
   useEffect(() => {
     locale('en-gb');
@@ -47,8 +44,6 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
     <Box className={classes.formControl} >
       <Box display="flex" justifyContent="space-between">
         <ul className={classes.habitsList}>
-        <div>Week: {startWeekday} - {endWeekday} <button>Set monthly view</button></div>
-        <div>Month: {month} <button>Set weekly view</button></div>
           {habitsList.map((habit, index) => (
             <li key={index} className={classes.habit}>
               <Box display="flex" alignItems="center">
