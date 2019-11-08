@@ -34,6 +34,12 @@ createStyles({
 export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
   const classes = useStyles();
   const [currentWeekDays, setCurrentWeekDays] = useState([]);
+  const [isMonthlyView, setMonthlyView] = useState(false)
+
+  // if (isMonthlyView) {
+  //   return <MonthCalendar />;
+  // }
+  // return <DaysOverview />;
 
   useEffect(() => {
     locale('en-gb');
@@ -49,10 +55,11 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
   return (
       <Box display="flex" flexDirection="column">
         <h4 style={{margin: 0}}>HABITS FOR TODAY</h4>
+        <button onClick={() => setMonthlyView(!isMonthlyView)}>{isMonthlyView ? 'Set weekly view' : 'Set montly view'}</button>
         <ul className={classes.habitsList}>
           {habitsList.map((habit, index) => (
             <li key={index} className={classes.habit}>
-              <Box display="flex" alignItems="center" marginLeft='-10px'>
+              <Box display="flex" alignItems="center" >
                 <CustomCheckbox 
                   checked={isHabitChecked(habit)} 
                   onChange={(e) => onTrackHabit(habit, e.target.checked)}/>
@@ -60,8 +67,12 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
                   {habit.title}
                 </Typography>
               </Box>
-              <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
-              <MonthCalendar style={{ display: 'none' }}/>
+              { isMonthlyView 
+              ? <MonthCalendar /> 
+              :  <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
+              } 
+              {/* // <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
+              // <MonthCalendar /> */}
               {/* <Divider /> */}
             </li>
           ))}
