@@ -5,6 +5,7 @@ import moment, { locale } from 'moment';
 import 'moment/locale/en-gb';
 import { DaysOverview } from './DaysOverview';
 import { CustomCheckbox } from '../Checkbox'
+import { MonthCalendar } from '../Calendar';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -17,7 +18,11 @@ createStyles({
     margin: 0
   },
   habit: {
-    padding: '10px',
+    padding: '15px 0',
+
+    // '& span': {
+    //   marginLeft: '-10px',
+    // },
 
     '& button': {
       marginRight: '5px'
@@ -47,7 +52,7 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
         <ul className={classes.habitsList}>
           {habitsList.map((habit, index) => (
             <li key={index} className={classes.habit}>
-              <Box display="flex" alignItems="center">
+              <Box display="flex" alignItems="center" marginLeft='-10px'>
                 <CustomCheckbox 
                   checked={isHabitChecked(habit)} 
                   onChange={(e) => onTrackHabit(habit, e.target.checked)}/>
@@ -56,6 +61,7 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
                 </Typography>
               </Box>
               <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
+              <MonthCalendar style={{ display: 'none' }}/>
               {/* <Divider /> */}
             </li>
           ))}
