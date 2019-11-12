@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import { Checkbox } from '@material-ui/core';
 import moment from 'moment';
 import { colors } from '../../styles/variables';
 import { createStyles, makeStyles } from '@material-ui/core/styles';

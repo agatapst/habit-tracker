@@ -20,12 +20,7 @@ createStyles({
     margin: 0
   },
   habit: {
-    padding: '15px 0',
-
-    // '& span': {
-    //   marginLeft: '-10px',
-    // },
-
+    padding: '0 0 15px',
   },
 }),
 );
@@ -48,9 +43,9 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
 
   return (
       <Box display="flex" flexDirection="column">
-        <Box display="flex" flexDirection="row" justifyContent="space-between">
-          <h4 style={{margin: 0}}>HABITS FOR TODAY</h4>
-          <CustomButton onClick={() => setMonthlyView(!isMonthlyView)}>{isMonthlyView ? 'Set weekly view' : 'Set montly view'}</CustomButton>
+        <Box display="flex" flexDirection="row" justifyContent="space-between" marginTop='15px' marginBottom='10px'>
+          <h3 style={{margin: 0}}>HABITS FOR TODAY</h3>
+          <CustomButton onClick={() => setMonthlyView(!isMonthlyView)}>{isMonthlyView ? 'Set weekly view' : 'Set monthly view'}</CustomButton>
         </Box>
         <ul className={classes.habitsList}>
           {habitsList.map((habit, index) => (
@@ -67,9 +62,6 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
               ? <MonthCalendar trackedDays={habit.trackedDays}/> 
               :  <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
               } 
-              {/* // <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
-              // <MonthCalendar /> */}
-              {/* <Divider /> */}
             </li>
           ))}
         </ul>

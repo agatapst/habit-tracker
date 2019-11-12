@@ -6,12 +6,6 @@ import { SearchBar } from '../SearchBar';
 import { Container } from '../Container';
 import { HabitsList } from './HabitsList';
 import { Box, Typography } from '@material-ui/core';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) =>
-createStyles({
-  }),
-);
 
 const DEFAULT_HABITS = [
   {"id":"1", "title":"Pójść na spacer","description":"Minimum 5 kilometrów","category":"sports","trackedDays":["2019-11-04", "2019-11-05"]},
@@ -25,9 +19,6 @@ export const HabitList = () => {
   const [filteredHabitsList, setFilteredHabitsList] = useState([])
   const [query, setQuery] = useState('');
   const [editedHabit, setEditedHabit] = useState(null);
-
-  const classes = useStyles();
-
     
   useEffect(() => {
     const habits = localStorage.getItem('habitsList');
@@ -72,12 +63,7 @@ export const HabitList = () => {
 
   return (
     <Container>
-      <Box display="flex" justifyContent="space-between">
-        <Typography variant="h3">
-          Manage your habits
-        </Typography>
-      </Box>
-      {/* controlled input */}
+      <h3>MANAGE YOUR HABITS</h3>
       <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>
       <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
       <EditHabitModal editHabit={editHabit} initialValues={editedHabit} isOpen={isEditModalOpen} onClose={ () => {setEditModalOpen(false)}} />

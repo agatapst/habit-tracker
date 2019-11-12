@@ -4,10 +4,10 @@ import React from 'react';
 import { Button, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField } from '../InputField'
-// import { DatePicker } from '../DatePicker'
 import { CategoriesField } from '../CategoriesField'
 import CloseIcon from '@material-ui/icons/Close';
 import uuid from "uuid/v4";
+import { CustomButton } from '../Button';
 
 
 const useStyles = makeStyles((theme) =>
@@ -55,8 +55,6 @@ export const AddNewHabitModal = ({
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      height: 380,
-      width: 300,
       padding: 30,
       maxHeight: '90vh',
       position: 'absolute'
@@ -70,9 +68,7 @@ export const AddNewHabitModal = ({
     <Modal isOpen={isOpen} style={customStyles} {...props}>
     
     <Box display="flex" justifyContent="space-between">
-      <Typography variant="h4">
-      Add new habit! 
-      </Typography>
+      <h4>ADD NEW HABIT</h4>
       <CloseIcon onClick={onClose} className={classes.closeIcon} />
     </Box>
     
@@ -97,27 +93,17 @@ export const AddNewHabitModal = ({
             name="description"
             label="Habit description"
             />
-          
-          {/* <SelectInputField
-          label="Repeat mode"
-          name="repeatMode"
-          >
-            <MenuItem value='everyday'>Everyday</MenuItem>
-            <MenuItem value='once a week'>Once a week</MenuItem>
-            <MenuItem value='once a month'>Once a month</MenuItem>
-          </SelectInputField> */}
-
         <CategoriesField id="category" name="category"/>
         </div>
 
         <>
-          <Button
+          <CustomButton
           type="submit"
           variant="contained"
           color="primary"
           >
-            Submit
-          </Button>
+            Create habit
+          </CustomButton>
         </>
       </Form>
       )}
