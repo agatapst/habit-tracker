@@ -39,7 +39,7 @@ export const DaysOverview = ({days, trackedDays}) => {
     <div style={{background: colors.beige, borderRadius: '20px'}}>
       <ul className={classes.weekdaysList}>
         {days.map((day, index) => (
-          <li key={index} style={{display: 'table-cell', color: isToday(day) ? 'red' : 'black'}}>
+          <li key={index} style={{ color: isToday(day) ? 'red' : 'black'}}>
           <Box display="flex" flexDirection="column">
             <CustomCheckbox disabled={true} checked={isChecked(day)} />
           </Box>

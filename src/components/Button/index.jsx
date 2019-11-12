@@ -1,38 +1,21 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import { colors } from '../../styles/variables';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    color: 'theme.colors.white',
-    '&$checked': {
-      background: theme.colors.darkRed,
-      fill: theme.colors.white
+export const CustomButton = withStyles({
+    root: {
+      backgroundColor: colors.darkRed,
+      borderRadius: 3,
+      border: 0,
+      color: 'white',
+      padding: '2px 10px',
+      width: 150,
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      display: 'inline',
+
+      '&:hover': {
+          backgroundColor: colors.darkRed,
+      }
     },
-  },
-}));
-
-export const StyledButton = () => {
-  const classes = useStyles();
-
-  return (
-    <Button
-      classes={{
-        root: classes.root
-      }}
-    />
-  );
-}
-
-const theme = createMuiTheme({
-  colors: {...colors},
-});
-
-export const CustomCheckbox = ({...props}) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <StyledButton {...props}/>
-    </ThemeProvider>
-  );
-}
+  })(Button);

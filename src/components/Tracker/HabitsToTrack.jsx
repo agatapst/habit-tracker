@@ -6,6 +6,8 @@ import 'moment/locale/en-gb';
 import { DaysOverview } from './DaysOverview';
 import { CustomCheckbox } from '../Checkbox'
 import { MonthCalendar } from '../Calendar';
+import { CustomButton } from '../Button';
+
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -24,9 +26,6 @@ createStyles({
     //   marginLeft: '-10px',
     // },
 
-    '& button': {
-      marginRight: '5px'
-    }
   },
 }),
 );
@@ -35,11 +34,6 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
   const classes = useStyles();
   const [currentWeekDays, setCurrentWeekDays] = useState([]);
   const [isMonthlyView, setMonthlyView] = useState(false)
-
-  // if (isMonthlyView) {
-  //   return <MonthCalendar />;
-  // }
-  // return <DaysOverview />;
 
   useEffect(() => {
     locale('en-gb');
@@ -54,8 +48,10 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
 
   return (
       <Box display="flex" flexDirection="column">
-        <h4 style={{margin: 0}}>HABITS FOR TODAY</h4>
-        <button onClick={() => setMonthlyView(!isMonthlyView)}>{isMonthlyView ? 'Set weekly view' : 'Set montly view'}</button>
+        <Box display="flex" flexDirection="row" justifyContent="space-between">
+          <h4 style={{margin: 0}}>HABITS FOR TODAY</h4>
+          <CustomButton onClick={() => setMonthlyView(!isMonthlyView)}>{isMonthlyView ? 'Set weekly view' : 'Set montly view'}</CustomButton>
+        </Box>
         <ul className={classes.habitsList}>
           {habitsList.map((habit, index) => (
             <li key={index} className={classes.habit}>
@@ -68,7 +64,7 @@ export const HabitsToTrack = ({habitsList, onTrackHabit}) => {
                 </Typography>
               </Box>
               { isMonthlyView 
-              ? <MonthCalendar /> 
+              ? <MonthCalendar trackedDays={habit.trackedDays}/> 
               :  <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />
               } 
               {/* // <DaysOverview days={currentWeekDays} trackedDays={habit.trackedDays} />

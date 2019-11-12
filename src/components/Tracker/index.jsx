@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from '../Navbar';
 import { HabitsToTrack } from './HabitsToTrack';
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { appConfig } from '../../config/appConfig'
 import moment from 'moment';
 import { WeekView } from '../WeekView';
 import { Container } from '../Container';
 
 const useStyles = makeStyles((theme) =>
-createStyles({
-  mainContainer: {
-    height: '600px',
-    width: '500px',
-    marginTop: '50px',
-    background: '#ffffff',
-    border: '1px solid red',
-    borderRadius: '5px',
-    padding: '20px',
-    position: 'relative'
-  },
-  todayWeekday: {
-    background: 'red'
-  }
-}),
+  createStyles({
+    mainContainer: {
+      height: '600px',
+      width: '500px',
+      marginTop: '50px',
+      background: '#ffffff',
+      border: '1px solid red',
+      borderRadius: '5px',
+      padding: '20px',
+      position: 'relative'
+    },
+    todayWeekday: {
+      background: 'red'
+    }
+  }),
 );
 
 export const Tracker = () => {
