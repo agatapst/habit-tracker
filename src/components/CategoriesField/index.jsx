@@ -12,7 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 const useStyles = makeStyles((theme) =>
 createStyles({
   inputField: {
-    margin: 10,
+    margin: '20px 10px',
 
     '& > *': {
       width: '100%',
@@ -49,6 +49,7 @@ export const CategoriesField = ({
                           {categoriesList.map(category => (
                             <Tooltip key={category} title={category}>
                               <FormControlLabel 
+                                style={{marginRight: 0}}
                                 key={category} 
                                 value={category} 
                                 control={<Radio icon={<CategoryIcon category={category} />} 

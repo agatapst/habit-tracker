@@ -17,11 +17,11 @@ const iconForCategory = {
     sleep: HotelIcon,
     selfCare: FavoriteIcon,
     eatingAndCooking: RestaurantIcon,
-    nature: EmojiNatureIcon,
+    // nature: EmojiNatureIcon,
     programming: GitHubIcon,
     music: MusicNoteIcon,
     drinking: LocalDrinkIcon,
-    entertainment: MoodIcon,
+    // entertainment: MoodIcon,
 }
 
 const tooltipForCategory = {

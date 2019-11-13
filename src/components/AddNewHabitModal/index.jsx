@@ -1,13 +1,14 @@
 import Modal from 'react-modal';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import { Button, Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField } from '../InputField'
 import { CategoriesField } from '../CategoriesField'
 import CloseIcon from '@material-ui/icons/Close';
 import uuid from "uuid/v4";
 import { CustomButton } from '../Button';
+import { colors } from '../../styles/variables';
 
 
 const useStyles = makeStyles((theme) =>
@@ -18,7 +19,6 @@ createStyles({
   formControl: {
     display: 'flex',
     flexDirection: 'column',
-    width: '100%',
     height: '100%',
     minHeight: '100%',
   },
@@ -31,9 +31,7 @@ createStyles({
   formFields: {
     display: 'flex',
     flexDirection: 'column',
-    flexGrow: 2,
     width: '100%',
-    maxHeight: 290
   },
 }),
 );
@@ -57,7 +55,8 @@ export const AddNewHabitModal = ({
       transform: 'translate(-50%, -50%)',
       padding: 30,
       maxHeight: '90vh',
-      position: 'absolute'
+      position: 'absolute',
+      width: 400
     },
     overlay: {
       backgroundOpacity: '90%'
@@ -68,7 +67,7 @@ export const AddNewHabitModal = ({
     <Modal isOpen={isOpen} style={customStyles} {...props}>
     
     <Box display="flex" justifyContent="space-between">
-      <h4>ADD NEW HABIT</h4>
+      <h4 style={{margin: '0 auto'}}>ADD NEW HABIT</h4>
       <CloseIcon onClick={onClose} className={classes.closeIcon} />
     </Box>
     
@@ -93,7 +92,7 @@ export const AddNewHabitModal = ({
             name="description"
             label="Habit description"
             />
-        <CategoriesField id="category" name="category"/>
+        <CategoriesField id="category" name="category" />
         </div>
 
         <>
@@ -101,6 +100,7 @@ export const AddNewHabitModal = ({
           type="submit"
           variant="contained"
           color="primary"
+          style={{margin: '0 auto'}}
           >
             Create habit
           </CustomButton>

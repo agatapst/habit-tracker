@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import { InputBase } from '@material-ui/core/';
 import SearchIcon from '@material-ui/icons/Search';
+import { colors } from '../../styles/variables';
 
 const useStyles = makeStyles(theme => ({
     search: {
@@ -35,11 +36,14 @@ const useStyles = makeStyles(theme => ({
     inputInput: {
       padding: theme.spacing(1, 1, 1, 7),
       transition: theme.transitions.create('width'),
+      border: `1px solid transparent`,
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        width: 120,
+        // width: 120,
         '&:focus': {
-          width: 200,
+          width: '100%',
+          borderColor: colors.mainRed,
+          borderRadius: '5px'
         },
       },
     },

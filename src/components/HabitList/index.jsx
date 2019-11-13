@@ -5,7 +5,6 @@ import { EditHabitModal } from '../EditHabitModal';
 import { SearchBar } from '../SearchBar';
 import { Container } from '../Container';
 import { HabitsList } from './HabitsList';
-import { Box, Typography } from '@material-ui/core';
 
 const DEFAULT_HABITS = [
   {"id":"1", "title":"Pójść na spacer","description":"Minimum 5 kilometrów","category":"sports","trackedDays":["2019-11-04", "2019-11-05"]},

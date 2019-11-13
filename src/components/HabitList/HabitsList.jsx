@@ -5,6 +5,7 @@ import { CategoryIcon } from "../CategoryIcon"
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Tooltip from '@material-ui/core/Tooltip';
+import { colors } from '../../styles/variables';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -20,7 +21,15 @@ createStyles({
 
     '& svg': {
       marginRight: '5px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+
+      '&:first-child': {
+        color: colors.navy
+      },
+
+      '&:last-child': {
+        color: colors.mainRed
+      },
     }
   }
 }),
@@ -37,7 +46,7 @@ const classes = useStyles();
                 <li key={index} className={classes.habit}>
                   <Box display="flex" justifyContent="space-between" flex="1">
                     <Box display="flex" flexDirection="row" justifyContent="space-around">
-                      <CategoryIcon category={habit.category} />
+                      {/* <CategoryIcon category={habit.category} /> */}
                       <Typography variant="subtitle1">
                           {habit.title}
                       </Typography>
@@ -65,7 +74,7 @@ const classes = useStyles();
                     {/* <Typography variant="body2">
                         {habit.repeatMode}
                     </Typography> */}
-                    <Divider />
+                    {/* <Divider /> */}
                 </li>
             ))}
         </ul>
