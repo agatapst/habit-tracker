@@ -31,16 +31,16 @@ const useStyles = makeStyles(() =>
     }),
 );
 
-export const WeekView = ({days, trackedDays}) => {
+export const WeekView = ({days}) => {
   const classes = useStyles()
   const isToday = day => day.isSame(moment(), "day");
   const formatDateWeekday = day => day.format('ddd');
   const formatDate = day => day.format('DD');
 
   return (
-    <div>
+    <>
       <ul className={classes.weekdaysList}>
-        {days.map((day, index) => (
+        {days && days.map((day, index) => (
           <li key={index} style={{backgroundColor: isToday(day) ? colors.beige : 'transparent',
                                   boxShadow: isToday(day) ? '0 0 10px grey' : 'none'}}>
           <Box display="flex" flexDirection="column">
@@ -50,6 +50,6 @@ export const WeekView = ({days, trackedDays}) => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }

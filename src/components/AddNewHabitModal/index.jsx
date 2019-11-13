@@ -8,7 +8,6 @@ import { CategoriesField } from '../CategoriesField'
 import CloseIcon from '@material-ui/icons/Close';
 import uuid from "uuid/v4";
 import { CustomButton } from '../Button';
-import { colors } from '../../styles/variables';
 
 
 const useStyles = makeStyles((theme) =>
