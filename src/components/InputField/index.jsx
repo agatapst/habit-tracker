@@ -35,7 +35,6 @@ export const InputField = ({
                 label={label}
               />
             </div>
-
           );
         }}
       />

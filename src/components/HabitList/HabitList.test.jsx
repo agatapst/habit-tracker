@@ -7,7 +7,7 @@ describe('Habit List', () => {
   test('renders without failing', () => {
     render(
         <BrowserRouter>
-        <HabitList />
+          <HabitList />
         </BrowserRouter>
     );
   });
