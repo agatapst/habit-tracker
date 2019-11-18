@@ -1,6 +1,7 @@
 import React from 'react';
 import { HabitList } from './components/HabitList';
 import { Tracker } from './components/Tracker';
+import { MainPage } from './components/MainPage';
 import { Router, Route } from 'react-router-dom';
 import { route } from './config/routes';
 import history from './config/history';
@@ -20,7 +21,8 @@ function App() {
   return (
     <MuiThemeProvider theme={THEME}>
         <Router history={history}>
-          <Route exact path={route.root()} component={Tracker} />
+          <Route exact path={route.root()} component={MainPage} />
+          <Route exact path={route.tracker()} component={Tracker} />
           <Route exact path={route.list()} component={HabitList} />
         </Router>
     </MuiThemeProvider>

@@ -41,7 +41,7 @@ export const Navbar = ({onClick}) => {
   return (
     <AppBar className={classes.appBar}>
         <Toolbar>
-          <IconButton edge="start" color="default" aria-label="open drawer" component={Link} to={route.root()}>
+          <IconButton edge="start" color="default" aria-label="open drawer" component={Link} to={route.tracker()}>
             <HomeIcon />
           </IconButton>
           <AddButtonThatHides onClick={onClick}/>

@@ -10,7 +10,12 @@ const useStyles = makeStyles(() =>
   createStyles({
     calendar: {
       border: 'none',
-      margin: '0 auto',
+      padding: '0 20px',
+      width: '100%',
+
+      '&:focus': {
+        background: 'transparent'
+      }
     },
     activeDay: {
       background: colors.mainRed,

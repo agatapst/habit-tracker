@@ -6,9 +6,9 @@ import { colors } from '../../styles/variables';
 const useStyles = makeStyles((theme) =>
 createStyles({
   mainContainer: {
-    height: '600px',
-    width: '400px',
-    marginTop: '50px',
+    height: '700px',
+    width: '600px',
+    marginTop: '30px',
     background: '#ffffff',
     border: `1px solid ${colors.mainRed}`,
     borderRadius: '5px',

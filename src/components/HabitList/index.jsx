@@ -5,6 +5,8 @@ import { EditHabitModal } from '../EditHabitModal';
 import { SearchBar } from '../SearchBar';
 import { Container } from '../Container';
 import { HabitsList } from './HabitsList';
+import image from '../../assets/settings.png'; 
+import { Box } from '@material-ui/core';
 
 const DEFAULT_HABITS = [
   {"id":"1", "title":"Pójść na spacer","description":"Minimum 5 kilometrów","category":"sports","trackedDays":["2019-11-04", "2019-11-05"]},
@@ -62,8 +64,11 @@ export const HabitList = () => {
 
   return (
     <Container>
-      <h3>MANAGE YOUR HABITS</h3>
-      <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>
+      <img src={image} style={{width: '70%', margin: '0 auto', display: 'flex'}} alt="Searching boy" />
+      <Box display="flex" flexDirection='row'>
+        <h3>MANAGE YOUR HABITS</h3>
+        <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>
+      </Box>
       <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
       <EditHabitModal editHabit={editHabit} initialValues={editedHabit} isOpen={isEditModalOpen} onClose={ () => {setEditModalOpen(false)}} />
       <HabitsList habitsList={filteredHabitsList} deleteHabit={deleteHabit} onEditButtonClick={openEditModal}/>

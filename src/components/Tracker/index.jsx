@@ -5,6 +5,7 @@ import { Box } from '@material-ui/core';
 import moment from 'moment';
 import { WeekView } from '../WeekView';
 import { Container } from '../Container';
+import image from '../../assets/done.png'; 
 
 export const Tracker = () => {
   const [habitsList, setHabitsList] = useState([]);
@@ -41,7 +42,8 @@ export const Tracker = () => {
 
   return (
     <Container>
-      <Box display="flex" flexDirection="column">
+      <Box display="flex" flexDirection="column" alignItems="center">
+        <img src={image} style={{width: '60%'}} alt="Boy with TODO list" />
       <WeekView days={currentWeekDays} />
       </Box>
       <HabitsToTrack habitsList={habitsList} onTrackHabit={handleTrackHabit} />

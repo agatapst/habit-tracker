@@ -15,7 +15,7 @@ createStyles({
     listStyleType: 'none',
     padding: 0,
     width: '100%',
-    height: '400px',
+    height: '285px',
     overflow: 'scroll',
     margin: 0
   },

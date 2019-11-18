@@ -17,7 +17,7 @@ export const AddButton = ({onClick, ...props}) => {
 
   const classes = useStyles();
 
-  if (history.location.pathname.match(/main/)){
+  if (history.location.pathname.match(/tracker/)){
     return null;
   }
 

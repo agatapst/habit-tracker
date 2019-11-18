@@ -1,4 +1,5 @@
 export const route = {
-    root: () => '/main',
+    root: () => '/',
+    tracker: () => '/tracker',
     list: () => '/list'
   };
