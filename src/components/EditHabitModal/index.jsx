@@ -5,7 +5,8 @@ import { Button, Box, Typography } from "@material-ui/core";
 import { Formik, Form } from 'formik';
 import { InputField } from '../InputField/index'
 import CloseIcon from '@material-ui/icons/Close';
-import { CategoriesField } from '../CategoriesField'
+import { CategoriesField } from '../CategoriesField';
+import { CustomButton } from '../Button';
 
 const useStyles = makeStyles((theme) =>
 createStyles({
@@ -53,11 +54,10 @@ export const EditHabitModal = ({
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      height: 380,
-      width: 300,
       padding: 30,
       maxHeight: '90vh',
-      position: 'absolute'
+      position: 'absolute',
+      width: 400
     },
     overlay: {
       backgroundOpacity: '90%'
@@ -68,9 +68,7 @@ export const EditHabitModal = ({
     <Modal isOpen={isOpen} style={customStyles} {...props}>
     
     <Box display="flex" justifyContent="space-between">
-      <Typography variant="h4">
-      Edit habit
-      </Typography>
+    <h4 style={{margin: '0 auto'}}>EDIT HABIT</h4>
       <CloseIcon onClick={onClose} className={classes.closeIcon} />
     </Box>
     
@@ -108,15 +106,16 @@ export const EditHabitModal = ({
           <CategoriesField id="category" name="category"/>
         </div>
 
-        <div >
-          <Button
+        <>
+          <CustomButton
           type="submit"
           variant="contained"
           color="primary"
+          style={{margin: '0 auto'}}
           >
             Save 
-          </Button>
-        </div>
+          </CustomButton>
+        </>
       </Form>
       )}
       />

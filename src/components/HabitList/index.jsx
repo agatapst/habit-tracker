@@ -64,7 +64,7 @@ export const HabitList = () => {
 
   return (
     <Container>
-      <img src={image} style={{width: '70%', margin: '0 auto', display: 'flex'}} alt="Searching boy" />
+      <img src={image} style={{width: 300, margin: '0 auto', display: 'flex'}} alt="Searching boy" />
       <Box display="flex" flexDirection='row'>
         <h3>MANAGE YOUR HABITS</h3>
         <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>

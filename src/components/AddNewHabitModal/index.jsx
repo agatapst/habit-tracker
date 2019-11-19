@@ -78,7 +78,7 @@ export const AddNewHabitModal = ({
       actions.resetForm();
       onClose();
     }}
-    render={(isSumbitting) => (
+    render={(isSubmitting) => (
       <Form className={classes.formControl}>
         <div className={classes.formFields}>
           <InputField

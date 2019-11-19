@@ -43,7 +43,7 @@ export const Tracker = () => {
   return (
     <Container>
       <Box display="flex" flexDirection="column" alignItems="center">
-        <img src={image} style={{width: '60%'}} alt="Boy with TODO list" />
+        <img src={image} style={{width: 300}} alt="Boy with TODO list" />
       <WeekView days={currentWeekDays} />
       </Box>
       <HabitsToTrack habitsList={habitsList} onTrackHabit={handleTrackHabit} />

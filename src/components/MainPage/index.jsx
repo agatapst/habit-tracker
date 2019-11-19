@@ -29,7 +29,7 @@ export const MainPage = ({children}) => {
   return (
     <Box display="flex" flexDirection="row" alignItems="center">
     <>
-        <img src={image} style={{width: '70%'}} alt="Main image" />
+        <img src={image} style={{width: 800}} alt="Main image" />
     </>
     <Box display="flex" flexDirection="column" alignItems="center">
         <h1 style={{ color: 'black' }}>Track your habits</h1>

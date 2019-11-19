@@ -6,13 +6,13 @@ import { colors } from '../../styles/variables';
 const useStyles = makeStyles((theme) =>
 createStyles({
   mainContainer: {
-    height: '700px',
-    width: '600px',
-    marginTop: '30px',
+    height: 620,
+    width: 600,
+    marginTop: 30,
     background: '#ffffff',
     border: `1px solid ${colors.mainRed}`,
-    borderRadius: '5px',
-    padding: '20px',
+    borderRadius: 5,
+    padding: 20,
     position: 'relative'
   },
 }),
