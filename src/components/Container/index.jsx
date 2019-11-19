@@ -9,7 +9,7 @@ createStyles({
     height: 620,
     width: 600,
     marginTop: 30,
-    background: '#ffffff',
+    background: colors.lightGrey,
     border: `1px solid ${colors.mainRed}`,
     borderRadius: 5,
     padding: 20,

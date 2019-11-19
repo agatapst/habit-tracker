@@ -36,14 +36,13 @@ const useStyles = makeStyles(theme => ({
     inputInput: {
       padding: theme.spacing(1, 1, 1, 7),
       transition: theme.transitions.create('width'),
-      border: `1px solid transparent`,
+      borderBottom: `1px solid ${colors.black}`,
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        // width: 120,
+        width: '100%',
         '&:focus': {
           width: '100%',
           borderColor: colors.mainRed,
-          borderRadius: '5px'
         },
       },
     },

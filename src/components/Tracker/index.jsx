@@ -6,6 +6,7 @@ import moment from 'moment';
 import { WeekView } from '../WeekView';
 import { Container } from '../Container';
 import image from '../../assets/done.png'; 
+import {appConfig} from '../../config/appConfig'
 
 export const Tracker = () => {
   const [habitsList, setHabitsList] = useState([]);
@@ -16,6 +17,15 @@ export const Tracker = () => {
     const habits = localStorage.getItem('habitsList');
      if(habits) {
        setHabitsList(JSON.parse(habits))
+     }
+   }, [])
+
+   useEffect(() => {
+    const habits = localStorage.getItem('habitsList');
+     if(habits && habits !== "[]") {
+       setHabitsList(JSON.parse(habits))
+     } else {
+      setHabitsList(appConfig.DEFAULT_HABITS)
      }
    }, [])
 

@@ -1,13 +1,6 @@
 export const appConfig = {
-  weekDays: [
-    { label: 'Monday', value: 'Monday' },
-    { label: 'Tuesday', value: 'Tuesday' },
-    { label: 'Wednesday', value: 'Wednesday' },
-    { label: 'Thursday', value: 'Thursday' },
-    { label: 'Friday', value: 'Friday' },
-    { label: 'Saturday', value: 'Saturday' },
-    { label: 'Sunday', value: 'Sunday' }
-  ],
-  days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-  weekdaysMin: ['Mn', 'Tu', 'Wd', 'Th', 'Fr', 'Sa', 'Su']
+  DEFAULT_HABITS: [
+    {"id":"1", "title":"Pójść na spacer","description":"Minimum 5 kilometrów","category":"sports","trackedDays":["2019-11-04", "2019-11-05"]},
+    {"id":"2", "title":"Joga","description":"","category":"selfCare","trackedDays":["2019-11-05", "2019-11-06"]},
+  ]
 };

@@ -7,11 +7,7 @@ import { Container } from '../Container';
 import { HabitsList } from './HabitsList';
 import image from '../../assets/settings.png'; 
 import { Box } from '@material-ui/core';
-
-const DEFAULT_HABITS = [
-  {"id":"1", "title":"Pójść na spacer","description":"Minimum 5 kilometrów","category":"sports","trackedDays":["2019-11-04", "2019-11-05"]},
-  {"id":"2", "title":"Joga","description":"","category":"selfCare","trackedDays":["2019-11-05", "2019-11-06"]},
-]
+import {appConfig} from '../../config/appConfig'
 
 export const HabitList = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -26,7 +22,7 @@ export const HabitList = () => {
      if(habits && habits !== "[]") {
        setHabitsList(JSON.parse(habits))
      } else {
-      setHabitsList(DEFAULT_HABITS)
+      setHabitsList(appConfig.DEFAULT_HABITS)
      }
    }, [])
 
@@ -64,11 +60,11 @@ export const HabitList = () => {
 
   return (
     <Container>
-      <img src={image} style={{width: 300, margin: '0 auto', display: 'flex'}} alt="Searching boy" />
-      <Box display="flex" flexDirection='row'>
-        <h3>MANAGE YOUR HABITS</h3>
-        <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>
+      <Box display="flex" flexDirection="row">
+        <img src={image} style={{width: 300, margin: '0 auto', display: 'flex'}} alt="Searching boy" />
       </Box>
+      <SearchBar value={query} onChange={ (e) => setQuery(e.target.value)}/>
+      <h3 style={{marginBottom: 0}}>MANAGE YOUR HABITS</h3>
       <AddNewHabitModal addNewHabit={addNewHabit} isOpen={isModalOpen} onClose={ () => {setModalOpen(false)}} />
       <EditHabitModal editHabit={editHabit} initialValues={editedHabit} isOpen={isEditModalOpen} onClose={ () => {setEditModalOpen(false)}} />
       <HabitsList habitsList={filteredHabitsList} deleteHabit={deleteHabit} onEditButtonClick={openEditModal}/>

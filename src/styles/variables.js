@@ -3,5 +3,7 @@ export const colors = {
     darkRed: '#D14242',
     beige: '#F7EEE2',
     white: '#FFFFFF',
-    navy: '#182955'
+    navy: '#182955',
+    lightGrey: '#FEFEFE',
+    black: '#000000'
 }

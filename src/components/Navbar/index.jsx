@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { IconButton, Toolbar, AppBar } from '@material-ui/core/';
 import HomeIcon from '@material-ui/icons/Home';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import SettingsIcon from '@material-ui/icons/Settings';
 import { AddButtonThatHides } from '../AddButton';
 import { Link } from 'react-router-dom';
 import { route } from '../../config/routes';
@@ -47,7 +47,7 @@ export const Navbar = ({onClick}) => {
           <AddButtonThatHides onClick={onClick}/>
           <div className={classes.grow} />
           <IconButton edge="end" color="default" component={Link} to={route.list()}>
-            <MoreIcon />
+            <SettingsIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
