@@ -1,5 +1,6 @@
 export const route = {
     root: () => '/',
     tracker: () => '/tracker',
-    list: () => '/list'
+    list: () => '/list',
+    signUp: () => '/signup'
   };
