@@ -1,8 +1,9 @@
 
 import { Form, Formik } from 'formik';
-import React from 'react';
+import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { InputField } from '../components/InputField'
+import { FirebaseContext } from './Firebase'
 // import { object } from 'yup';
 
 // const registerSchema = object().shape({
@@ -11,6 +12,7 @@ import { InputField } from '../components/InputField'
 // });
 
 export const Register = withRouter(({ history }) => {
+  const firebase = useContext(FirebaseContext);
 
   return (
     <>
@@ -21,18 +23,21 @@ export const Register = withRouter(({ history }) => {
           passwordConfirmation: '',
         }}
         // validationSchema={registerSchema}
-        onSubmit = { event => {
-            const { email, password } = this.state;
-            this.props.firebase
-              .createUserWithEmailAndPassword(email, password)
-              .then(authUser => {
-                this.setState({ ...this.initialValues});
-              })
-              .catch(error => {
-                this.setState({ error });
-              });
-            event.preventDefault();
-            console.log(event.target.value)
+        onSubmit = { (values, actions) => {
+            const { email, password } = values;
+            firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
+              console.log("Success", user)
+            }).catch((error) => {
+              console.log("Error", error)
+            });
+            // this.props.firebase
+            //   .createUserWithEmailAndPassword(email, password)
+            //   .then(authUser => {
+            //     this.setState({ ...this.initialValues});
+            //   })
+            //   .catch(error => {
+            //     this.setState({ error });
+            //   });
             }
         }
       >
@@ -58,7 +63,6 @@ export const Register = withRouter(({ history }) => {
             <button
               type="submit"
             //   disabled={isSubmitting || !isValid}
-              block
             >
               REGISTER
             </button>

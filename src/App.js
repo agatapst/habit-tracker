@@ -7,7 +7,9 @@ import { Router, Route } from 'react-router-dom';
 import { route } from './config/routes';
 import history from './config/history';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Firebase, { FirebaseContext } from './auth/Firebase';
+import * as firebase from 'firebase';
+import { firebaseConfig } from './config/firebase';
+import { FirebaseProvider } from './auth/Firebase';
 
 const THEME = createMuiTheme({
   typography: {
@@ -19,9 +21,12 @@ const THEME = createMuiTheme({
   }
 });
 
+console.log(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
+
 function App() {
   return (
-    <FirebaseContext.Provider>
+    <FirebaseProvider value={firebase}>
       <MuiThemeProvider theme={THEME}>
           <Router history={history}>
             <Route exact path={route.root()} component={MainPage} />
@@ -30,7 +35,7 @@ function App() {
             <Route exact path={route.signUp()} component={Register} />
           </Router>
       </MuiThemeProvider>
-    </FirebaseContext.Provider>
+    </FirebaseProvider>
   );
 }
 
