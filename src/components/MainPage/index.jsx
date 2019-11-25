@@ -7,7 +7,6 @@ import { CustomButton } from '../Button';
 import { Link } from 'react-router-dom';
 import { route } from '../../config/routes';
 import { Container } from '../Container';
-import { Register } from '../../auth/registration';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -28,13 +27,7 @@ export const MainPage = ({ children }) => {
   const classes = useStyles();
 
   return (
-    <Box
-      display="flex"
-      flexDirection="row"
-      alignItems="center"
-      justifyContent="center"
-      style={{ margin: 100, height: 500 }}
-    >
+    <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center">
       <Box display="flex" flexDirection="column" alignItems="center" style={{ height: '100%' }}>
         <img src={image} style={{ width: 550 }} alt="Boy with todo list" />
       </Box>

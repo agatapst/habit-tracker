@@ -3,28 +3,23 @@ import { Box } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { colors } from '../../styles/variables';
 
-const useStyles = makeStyles((theme) =>
-createStyles({
-  mainContainer: {
-    height: 620,
-    width: 600,
-    marginTop: 30,
-    background: colors.lightGrey,
-    border: `1px solid ${colors.mainRed}`,
-    borderRadius: 5,
-    padding: 20,
-    position: 'relative'
-  },
-}),
+const useStyles = makeStyles(theme =>
+  createStyles({
+    mainContainer: {
+      height: 620,
+      width: 600,
+      marginTop: 30,
+      background: colors.lightGrey,
+      border: `1px solid ${colors.mainRed}`,
+      borderRadius: 5,
+      padding: 20,
+      position: 'relative'
+    }
+  })
 );
 
-export const Container = ({children}) => {
-
+export const Container = ({ children }) => {
   const classes = useStyles();
 
-  return (
-    <Box className={classes.mainContainer}>
-        {children}
-    </Box>
-  );
+  return <Box className={classes.mainContainer}>{children}</Box>;
 };
