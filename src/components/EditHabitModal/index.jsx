@@ -91,7 +91,7 @@ export const EditHabitModal = ({
             <InputField
             id="description"
             name="description"
-            label="Habit description"
+            placeholder="Habit description"
             />
           
           {/* <SelectInputField

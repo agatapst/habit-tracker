@@ -1,2 +1,3 @@
-import FirebaseContext, {FirebaseProvider, FirebaseConsumer} from './FirebaseContext';
+import FirebaseContext, { FirebaseProvider, FirebaseConsumer } from './FirebaseContext';
+
 export { FirebaseContext, FirebaseProvider, FirebaseConsumer };
