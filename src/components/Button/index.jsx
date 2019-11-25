@@ -15,7 +15,6 @@ export const CustomButton = withStyles({
     display: 'inline',
     fontSize: 10,
     textAlign: 'center',
-    margin: 10,
 
     '&:hover': {
       backgroundColor: colors.darkRed

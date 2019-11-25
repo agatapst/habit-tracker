@@ -66,12 +66,12 @@ export const HabitList = () => {
       <Box display="flex" flexDirection="row">
         <img
           src={image}
-          style={{ width: 230, margin: '0 auto', display: 'flex' }}
+          style={{ width: 200, margin: '0 auto', display: 'flex' }}
           alt="Searching boy"
         />
       </Box>
       <SearchBar value={query} onChange={e => setQuery(e.target.value)} />
-      <h3 style={{ marginBottom: 0 }}>MANAGE YOUR HABITS</h3>
+      <h3 style={{ marginBottom: 5 }}>MANAGE YOUR HABITS</h3>
       <AddNewHabitModal
         addNewHabit={addNewHabit}
         isOpen={isModalOpen}

@@ -42,13 +42,7 @@ export const HabitsToTrack = ({ habitsList, onTrackHabit }) => {
 
   return (
     <Box display="flex" flexDirection="column">
-      <Box
-        display="flex"
-        flexDirection="row"
-        justifyContent="space-between"
-        marginTop="10px"
-        marginBottom="5px"
-      >
+      <Box display="flex" flexDirection="row" justifyContent="space-between" marginTop="10px">
         <h3 style={{ margin: 0 }}>HABITS FOR TODAY</h3>
         <CustomButton onClick={() => setMonthlyView(!isMonthlyView)}>
           {isMonthlyView ? 'Set weekly view' : 'Set monthly view'}
