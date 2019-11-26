@@ -10,7 +10,7 @@ import image from '../assets/main.png';
 import { Link } from 'react-router-dom';
 import { route } from '../config/routes';
 import { Container } from '../components/Container';
-import { CustomButton } from '../components/Button';
+import { CustomButtonBig } from '../components/Button';
 import { Card } from '../components/Card';
 import { useStyles } from './styles';
 
@@ -81,9 +81,12 @@ export const Register = withRouter(({ history }) => {
                 placeholder="repeat password"
                 label="repeat password"
               />
-              <CustomButton type="submit">Register</CustomButton>
+              <CustomButtonBig type="submit">Register</CustomButtonBig>
               <Typography variant="body2" className={classes.loginBox}>
-                If you have an account, please LOGIN
+                If you have an account, please
+                <Link className={classes.link} to={route.login()}>
+                  LOGIN
+                </Link>
               </Typography>
             </Card>
           </Box>

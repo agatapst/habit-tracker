@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme =>
       alignItems: 'center',
       justifyContent: 'center',
       background: 'white',
-      height: '100%',
       padding: 20,
       borderRadius: 5
     },

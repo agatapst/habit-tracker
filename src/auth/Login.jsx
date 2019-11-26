@@ -10,7 +10,7 @@ import image from '../assets/login.png';
 import { Link } from 'react-router-dom';
 import { route } from '../config/routes';
 import { Container } from '../components/Container';
-import { CustomButton } from '../components/Button';
+import { CustomButtonBig } from '../components/Button';
 import { Card } from '../components/Card';
 import { useStyles } from './styles';
 
@@ -60,7 +60,8 @@ export const Login = withRouter(({ history }) => {
                 LOGIN
               </Typography>
               <Typography variant="subtitle1" className={classes.subtitle}>
-                Do you know that, half of the time you are awake is spent with automatic behaviors?
+                It's hard to shake off a habit since it takes an average of 66 days before a new
+                habit takes root in our brain. Make it easier.
               </Typography>
 
               <InputField name="email" variant="outlined" placeholder="email" label="email" />
@@ -71,9 +72,12 @@ export const Login = withRouter(({ history }) => {
                 placeholder="password"
                 label="password"
               />
-              <CustomButton type="submit">Login</CustomButton>
+              <CustomButtonBig type="submit">Login</CustomButtonBig>
               <Typography variant="body2" className={classes.loginBox}>
-                If you don't have an account, please REGISTER
+                If you don't have an account, please
+                <Link className={classes.link} to={route.signUp()}>
+                  REGISTER
+                </Link>
               </Typography>
             </Card>
           </Box>

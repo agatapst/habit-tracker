@@ -1,4 +1,5 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { colors } from '../styles/variables';
 
 export const useStyles = makeStyles(theme =>
   createStyles({
@@ -19,9 +20,10 @@ export const useStyles = makeStyles(theme =>
     },
     image: {
       display: 'none',
-      width: '100%',
       [theme.breakpoints.up('md')]: {
-        display: 'flex'
+        display: 'flex',
+        height: '100%',
+        width: '100%'
       }
     },
     main: {
@@ -30,14 +32,21 @@ export const useStyles = makeStyles(theme =>
       alignItems: 'center',
       justifyContent: 'center',
       margin: 10,
+      flex: 1,
       [theme.breakpoints.up('md')]: {
-        margin: 100,
-        height: 500
+        margin: 70,
+        height: 550
       }
     },
     loginBox: {
       fontSize: 12,
       margin: '10px 0 0'
+    },
+    link: {
+      textDecoration: 'none',
+      color: colors.mainRed,
+      marginLeft: 4,
+      fontWeight: 500
     }
   })
 );
