@@ -6,7 +6,7 @@ import { FirebaseContext } from './Firebase';
 import { Box, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { colors } from '../styles/variables';
-import image from '../assets/main.png';
+import image from '../assets/login.png';
 import { Link } from 'react-router-dom';
 import { route } from '../config/routes';
 import { Container } from '../components/Container';
@@ -21,7 +21,7 @@ import { useStyles } from './styles';
 //   password: validators.registerPassword,
 // });
 
-export const Register = withRouter(({ history }) => {
+export const Login = withRouter(({ history }) => {
   const firebase = useContext(FirebaseContext);
   const classes = useStyles();
 
@@ -57,14 +57,12 @@ export const Register = withRouter(({ history }) => {
 
             <Card>
               <Typography variant="h4" className={classes.title}>
-                Track your habits
+                LOGIN
               </Typography>
               <Typography variant="subtitle1" className={classes.subtitle}>
-                It's hard to shake off a habit since it takes an average of 66 days before a new
-                habit takes root in our brain. Make it easier.
+                Do you know that, half of the time you are awake is spent with automatic behaviors?
               </Typography>
 
-              <InputField name="name" variant="outlined" placeholder="name" label="name" />
               <InputField name="email" variant="outlined" placeholder="email" label="email" />
               <InputField
                 name="password"
@@ -72,18 +70,10 @@ export const Register = withRouter(({ history }) => {
                 type="password"
                 placeholder="password"
                 label="password"
-                helperText="Password must contain at least 6 characters."
               />
-              <InputField
-                name="passwordConfirmation"
-                variant="outlined"
-                type="password"
-                placeholder="repeat password"
-                label="repeat password"
-              />
-              <CustomButton type="submit">Register</CustomButton>
+              <CustomButton type="submit">Login</CustomButton>
               <Typography variant="body2" className={classes.loginBox}>
-                If you have an account, please LOGIN
+                If you don't have an account, please REGISTER
               </Typography>
             </Card>
           </Box>

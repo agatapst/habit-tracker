@@ -3,6 +3,7 @@ import { HabitList } from './components/HabitList';
 import { Tracker } from './components/Tracker';
 import { MainPage } from './components/MainPage';
 import { Register } from './auth/Registration';
+import { Login } from './auth/Login';
 import { Router, Route } from 'react-router-dom';
 import { route } from './config/routes';
 import history from './config/history';
@@ -33,6 +34,7 @@ function App() {
           <Route exact path={route.tracker()} component={Tracker} />
           <Route exact path={route.list()} component={HabitList} />
           <Route exact path={route.signUp()} component={Register} />
+          <Route exact path={route.login()} component={Login} />
         </Router>
       </MuiThemeProvider>
     </FirebaseProvider>
