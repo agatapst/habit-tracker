@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HabitList } from './components/HabitList';
 import { Tracker } from './components/Tracker';
 import { MainPage } from './components/MainPage';
-import { Register } from './auth/Registration';
+import { Register } from './auth/Register';
 import { Login } from './auth/Login';
 import { Router, Route } from 'react-router-dom';
 import { route } from './config/routes';

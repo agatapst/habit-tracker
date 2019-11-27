@@ -13,13 +13,13 @@ import { Container } from '../components/Container';
 import { CustomButtonBig } from '../components/Button';
 import { Card } from '../components/Card';
 import { useStyles } from './styles';
+import { object } from 'yup';
+import { validators } from '../config/validators';
 
-// import { object } from 'yup';
-
-// const registerSchema = object().shape({
-//   email: validators.email,
-//   password: validators.registerPassword,
-// });
+const registerSchema = object().shape({
+  name: validators.name,
+  email: validators.email
+});
 
 export const Register = withRouter(({ history }) => {
   const firebase = useContext(FirebaseContext);
@@ -33,7 +33,7 @@ export const Register = withRouter(({ history }) => {
         password: '',
         passwordConfirmation: ''
       }}
-      // validationSchema={registerSchema}
+      validationSchema={registerSchema}
       onSubmit={(values, actions) => {
         const { email, password, name } = values;
         firebase

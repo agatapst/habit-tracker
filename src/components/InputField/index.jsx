@@ -2,6 +2,7 @@ import React from 'react';
 import { Field } from 'formik';
 import { TextField, Select, InputLabel } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { getFormikErrors } from '../../utils/getFormikErrors';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -22,10 +23,11 @@ export const InputField = ({ name, label, ...props }) => {
   return (
     <Field
       name={name}
-      render={({ field }) => {
+      render={({ field, form }) => {
+        const { errorId, hasError } = getFormikErrors(name, form);
         return (
           <div className={classes.inputField}>
-            <TextField {...props} {...field} label={label} />
+            <TextField {...props} {...field} label={label} error={hasError} helperText={errorId} />
           </div>
         );
       }}
