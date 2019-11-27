@@ -7,6 +7,7 @@ import { DaysOverview } from './DaysOverview';
 import { CustomCheckbox } from '../Checkbox';
 import { MonthCalendar } from '../Calendar';
 import { CustomButton } from '../Button';
+import { useUser } from '../../auth/Firebase';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -26,6 +27,7 @@ const useStyles = makeStyles(theme =>
 
 export const HabitsToTrack = ({ habitsList, onTrackHabit }) => {
   const classes = useStyles();
+  const user = useUser();
   const [currentWeekDays, setCurrentWeekDays] = useState([]);
   const [isMonthlyView, setMonthlyView] = useState(false);
 
@@ -43,7 +45,7 @@ export const HabitsToTrack = ({ habitsList, onTrackHabit }) => {
   return (
     <Box display="flex" flexDirection="column">
       <Box display="flex" flexDirection="row" justifyContent="space-between" marginTop="10px">
-        <h3 style={{ margin: 0 }}>HABITS FOR TODAY</h3>
+        <h3 style={{ margin: 0 }}>YOUR HABITS FOR TODAY, {user && user.displayName}</h3>
         <CustomButton onClick={() => setMonthlyView(!isMonthlyView)}>
           {isMonthlyView ? 'Set weekly view' : 'Set monthly view'}
         </CustomButton>

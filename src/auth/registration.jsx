@@ -35,16 +35,21 @@ export const Register = withRouter(({ history }) => {
       }}
       // validationSchema={registerSchema}
       onSubmit={(values, actions) => {
-        const { email, password } = values;
+        const { email, password, name } = values;
         firebase
           .auth()
           .createUserWithEmailAndPassword(email, password)
-          .then(user => {
-            console.log('Success', user);
+          .then(() =>
+            // returns promise that's why we can chain .then
+            firebase.auth().currentUser.updateProfile({
+              displayName: name
+            })
+          )
+          .then(() => {
             history.push('/tracker');
           })
           .catch(error => {
-            console.log('Error', error);
+            console.log('Registration error:', error);
           });
       }}
     >
@@ -64,7 +69,13 @@ export const Register = withRouter(({ history }) => {
                 habit takes root in our brain. Make it easier.
               </Typography>
 
-              <InputField name="name" variant="outlined" placeholder="name" label="name" />
+              <InputField
+                name="name"
+                variant="outlined"
+                placeholder="name"
+                label="name"
+                id="name"
+              />
               <InputField name="email" variant="outlined" placeholder="email" label="email" />
               <InputField
                 name="password"

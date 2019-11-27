@@ -38,7 +38,7 @@ export const Login = withRouter(({ history }) => {
         const { email, password } = values;
         firebase
           .auth()
-          .createUserWithEmailAndPassword(email, password)
+          .signInWithEmailAndPassword(email, password)
           .then(user => {
             console.log('Success', user);
             history.push('/tracker');
