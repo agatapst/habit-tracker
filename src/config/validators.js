@@ -2,8 +2,12 @@ import * as Yup from 'yup';
 import { appConfig } from './appConfig';
 
 export const validators = {
-  name: Yup.string().required('Imię jest wymagane'),
+  name: Yup.string().required('Name is required'),
   email: Yup.string()
-    .email('Niepoprawny format e-maila')
-    .required('Email jest wymagany')
+    .email('Invalid format')
+    .required('E-mail is required'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password is too short'),
+  passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match')
 };

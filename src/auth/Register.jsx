@@ -18,7 +18,9 @@ import { validators } from '../config/validators';
 
 const registerSchema = object().shape({
   name: validators.name,
-  email: validators.email
+  email: validators.email,
+  password: validators.password,
+  passwordConfirmation: validators.passwordConfirmation
 });
 
 export const Register = withRouter(({ history }) => {
@@ -81,9 +83,7 @@ export const Register = withRouter(({ history }) => {
                 name="password"
                 variant="outlined"
                 type="password"
-                placeholder="password"
-                label="password"
-                helperText="Password must contain at least 6 characters."
+                label="password (min. 6 characters)"
               />
               <InputField
                 name="passwordConfirmation"
