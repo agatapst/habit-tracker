@@ -1,6 +1,7 @@
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import { colors } from '../../styles/variables';
+import { blockStatement } from '@babel/types';
 
 export const CustomButton = withStyles({
   root: {
@@ -10,7 +11,6 @@ export const CustomButton = withStyles({
     color: 'white',
     padding: '5px 10px',
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    display: 'inline',
     fontSize: 10,
     textAlign: 'center',
 

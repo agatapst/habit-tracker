@@ -1,39 +1,28 @@
 import Modal from 'react-modal';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import { Button, Box, Typography } from "@material-ui/core";
+import { Box, Typography } from '@material-ui/core';
 import { Formik, Form } from 'formik';
-import { InputField } from '../InputField/index'
+import { InputField } from '../InputField/index';
 import CloseIcon from '@material-ui/icons/Close';
 import { CategoriesField } from '../CategoriesField';
-import { CustomButton } from '../Button';
+import { CustomButtonBig } from '../Button';
+import { Card } from '../Card';
+import { ModalStyles } from '../../styles/modals';
 
-const useStyles = makeStyles((theme) =>
-createStyles({
-  root: {
-    display: 'flex',
-  },
-  formControl: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    height: '100%',
-    minHeight: '100%',
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  closeIcon: {
-    cursor: 'pointer'
-  },
-  formFields: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 2,
-    width: '100%',
-    maxHeight: 290
-  },
-}),
+const useStyles = makeStyles(theme =>
+  createStyles({
+    root: {
+      display: 'flex'
+    },
+    title: {
+      textAlign: 'center',
+      width: '100%'
+    },
+    closeIcon: {
+      cursor: 'pointer'
+    }
+  })
 );
 
 export const EditHabitModal = ({
@@ -47,82 +36,45 @@ export const EditHabitModal = ({
   const classes = useStyles();
 
   const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      padding: 30,
-      maxHeight: '90vh',
-      position: 'absolute',
-      width: 400
-    },
-    overlay: {
-      backgroundOpacity: '90%'
-    }
+    content: ModalStyles.content,
+    overlay: ModalStyles.overlay
   };
 
   return (
     <Modal isOpen={isOpen} style={customStyles} {...props}>
-    
-    <Box display="flex" justifyContent="space-between">
-    <h4 style={{margin: '0 auto'}}>EDIT HABIT</h4>
-      <CloseIcon onClick={onClose} className={classes.closeIcon} />
-    </Box>
-    
-    <Formik 
-    initialValues={initialValues}
-    onSubmit={(values, actions) => {
-      console.log(values);
-      editHabit(values)
-      actions.resetForm();
-      onClose();
-    }}
-    render={(isSumbitting) => (
-      <Form className={classes.formControl} >
-        <div className={classes.formFields}>
-          <InputField
-            id="title"
-            name="title"
-            label="Habit title"
-            />
-            <InputField
-            id="description"
-            name="description"
-            placeholder="Habit description"
-            />
-          
-          {/* <SelectInputField
-          label="Repeat mode"
-          name="repeatMode"
-          >
-            <MenuItem value='everyday'>Everyday</MenuItem>
-            <MenuItem value='once a week'>Once a week</MenuItem>
-            <MenuItem value='once a month'>Once a month</MenuItem>
-          </SelectInputField> */}
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values, actions) => {
+          console.log(values);
+          editHabit(values);
+          actions.resetForm();
+          onClose();
+        }}
+        render={isSumbitting => (
+          <Form>
+            <Box display="flex" justifyContent="space-between">
+              <Typography variant="h5" className={classes.title}>
+                Edit Habit
+              </Typography>
+              <CloseIcon onClick={onClose} className={classes.closeIcon} />
+            </Box>
+            <Card>
+              <InputField id="title" name="title" label="Habit title" variant="outlined" />
+              <InputField
+                id="description"
+                name="description"
+                label="Habit description"
+                variant="outlined"
+              />
+              <CategoriesField id="category" name="category" />
 
-          <CategoriesField id="category" name="category"/>
-        </div>
-
-        <>
-          <CustomButton
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{margin: '0 auto'}}
-          >
-            Save 
-          </CustomButton>
-        </>
-      </Form>
-      )}
+              <CustomButtonBig type="submit">Save</CustomButtonBig>
+            </Card>
+          </Form>
+        )}
       />
-      </Modal>
-      );
-    };
-    
-    Modal.setAppElement('body')
-    
-    
+    </Modal>
+  );
+};
+
+Modal.setAppElement('body');

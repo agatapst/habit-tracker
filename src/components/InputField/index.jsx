@@ -7,7 +7,7 @@ import { getFormikErrors } from '../../utils/getFormikErrors';
 const useStyles = makeStyles(theme =>
   createStyles({
     inputField: {
-      margin: 10,
+      margin: '12px 0',
       width: '100%',
 
       '& > *': {
