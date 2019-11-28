@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import { appConfig } from './appConfig';
 
 export const validators = {
   name: Yup.string().required('Name is required'),

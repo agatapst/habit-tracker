@@ -6,7 +6,7 @@ import { colors } from '../../styles/variables';
 const useStyles = makeStyles(theme =>
   createStyles({
     mainContainer: {
-      height: 620,
+      height: 630,
       width: 600,
       marginTop: 30,
       background: colors.lightGrey,

@@ -16,10 +16,7 @@ import { startOfHour } from 'date-fns';
 const THEME = createMuiTheme({
   typography: {
     fontFamily: '"Poppins", sans-serif',
-    fontSize: 14,
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500
+    fontSize: 14
   }
 });
 

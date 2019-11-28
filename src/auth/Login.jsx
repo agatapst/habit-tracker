@@ -28,10 +28,8 @@ export const Login = withRouter(({ history }) => {
   return (
     <Formik
       initialValues={{
-        name: '',
         email: '',
-        password: '',
-        passwordConfirmation: ''
+        password: ''
       }}
       // validationSchema={registerSchema}
       onSubmit={(values, actions) => {

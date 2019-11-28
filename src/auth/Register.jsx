@@ -92,7 +92,9 @@ export const Register = withRouter(({ history }) => {
                 placeholder="repeat password"
                 label="repeat password"
               />
-              <CustomButtonBig type="submit">Register</CustomButtonBig>
+              <CustomButtonBig type="submit" disabled={isSubmitting || !isValid}>
+                Register
+              </CustomButtonBig>
               <Typography variant="body2" className={classes.loginBox}>
                 If you have an account, please
                 <Link className={classes.link} to={route.login()}>

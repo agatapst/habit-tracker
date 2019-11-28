@@ -8,6 +8,7 @@ import { CustomCheckbox } from '../Checkbox';
 import { MonthCalendar } from '../Calendar';
 import { CustomButton } from '../Button';
 import { useUser } from '../../auth/Firebase';
+import { space } from '../../styles/helpers';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -15,12 +16,12 @@ const useStyles = makeStyles(theme =>
       listStyleType: 'none',
       padding: 0,
       width: '100%',
-      height: '290px',
+      height: `${space(78) + 2}px`,
       overflow: 'scroll',
       margin: 0
     },
     habit: {
-      padding: '0 0 15px'
+      padding: `0 0 ${space(4)}px`
     }
   })
 );

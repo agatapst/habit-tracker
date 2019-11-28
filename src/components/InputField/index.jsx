@@ -3,11 +3,12 @@ import { Field } from 'formik';
 import { TextField, Select, InputLabel } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { getFormikErrors } from '../../utils/getFormikErrors';
+import { space } from '../../styles/helpers';
 
 const useStyles = makeStyles(theme =>
   createStyles({
     inputField: {
-      margin: '12px 0',
+      margin: `${space(3)}px 0`,
       width: '100%',
 
       '& > *': {

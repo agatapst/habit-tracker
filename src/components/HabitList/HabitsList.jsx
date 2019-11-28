@@ -1,34 +1,35 @@
 /* eslint-disable import/prefer-default-export */
-import React from "react";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Typography, Box } from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
-import Tooltip from "@material-ui/core/Tooltip";
-import { colors } from "../../styles/variables";
+import React from 'react';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { Typography, Box } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Tooltip from '@material-ui/core/Tooltip';
+import { colors } from '../../styles/variables';
+import { space } from '../../styles/helpers';
 
 const useStyles = makeStyles(theme =>
   createStyles({
     habitsList: {
-      listStyleType: "none",
-      padding: "0",
-      width: "100%",
-      height: 250,
-      overflow: "scroll",
+      listStyleType: 'none',
+      padding: '0',
+      width: '100%',
+      height: `${space(78) + 2}px`,
+      overflow: 'scroll',
       margin: 0
     },
     habit: {
-      padding: 5,
+      padding: `${space(1)}px`,
 
-      "& svg": {
-        marginRight: 5,
-        cursor: "pointer",
+      '& svg': {
+        margin: `0 ${space(1)}px 0}`,
+        cursor: 'pointer',
 
-        "&:first-child": {
+        '&:first-child': {
           color: colors.navy
         },
 
-        "&:last-child": {
+        '&:last-child': {
           color: colors.mainRed
         }
       }
@@ -45,12 +46,7 @@ export const HabitsList = ({ habitsList, deleteHabit, onEditButtonClick }) => {
         {habitsList.map((habit, index) => (
           <li key={index} className={classes.habit}>
             <Box display="flex" justifyContent="space-between" flex="1">
-              <Box
-                display="flex"
-                flexDirection="row"
-                justifyContent="space-around"
-              >
-                {/* <CategoryIcon category={habit.category} /> */}
+              <Box display="flex" flexDirection="row" justifyContent="space-around">
                 <Typography variant="subtitle1">{habit.title}</Typography>
               </Box>
               <div>
@@ -71,10 +67,6 @@ export const HabitsList = ({ habitsList, deleteHabit, onEditButtonClick }) => {
               </div>
             </Box>
             <Typography variant="body2">{habit.description}</Typography>
-            {/* <Typography variant="body2">
-                        {habit.repeatMode}
-                    </Typography> */}
-            {/* <Divider /> */}
           </li>
         ))}
       </ul>

@@ -1,27 +1,27 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { colors } from '../../styles/variables';
+import { colors, spacing } from '../../styles/variables';
 import image from '../../assets/main.png';
 import { CustomButton } from '../Button';
 import { Link } from 'react-router-dom';
 import { route } from '../../config/routes';
 import { Container } from '../Container';
+import { space } from '../../styles/helpers';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles =>
   createStyles({
     mainContainer: {
-      height: '600px',
-      width: '400px',
-      marginTop: '50px',
+      height: `${space(200)}px`,
+      width: `${space(100)}px`,
+      marginTop: `${space(12)}px`,
       background: '#ffffff',
       border: `1px solid ${colors.mainRed}`,
-      borderRadius: '5px',
-      padding: '20px',
+      borderRadius: spacing.radius,
+      padding: `${space(5)}px`,
       position: 'relative'
     }
-  })
-);
+  });
 
 export const MainPage = ({ children }) => {
   const classes = useStyles();

@@ -3,13 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import history from '../../config/history';
 import { CustomButtonBig } from '../Button';
+import { space } from '../../styles/helpers';
 
 const useStyles = makeStyles(theme => ({
   addButton: {
     position: 'absolute',
     zIndex: 1,
-    top: 5,
-    right: 60
+    top: `${space(1) + 1}px`,
+    right: `${space(12)}px`
   }
 }));
 

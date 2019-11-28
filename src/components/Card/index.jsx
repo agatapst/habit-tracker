@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { colors } from '../../styles/variables';
+import { spacing } from '../../styles/variables';
+import { space } from '../../styles/helpers';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -11,8 +12,8 @@ const useStyles = makeStyles(theme =>
       alignItems: 'center',
       justifyContent: 'center',
       background: 'white',
-      padding: 20,
-      borderRadius: 5
+      padding: `${space(5)}px`,
+      borderRadius: spacing.radius
     },
     [theme.breakpoints.down('md')]: {
       width: '100%'
