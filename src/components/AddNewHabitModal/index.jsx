@@ -11,7 +11,7 @@ import { CustomButtonBig } from '../Button';
 import { ModalStyles } from '../../styles/modals';
 import { Card } from '../Card';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       display: 'flex'

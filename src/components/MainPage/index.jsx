@@ -9,7 +9,7 @@ import { route } from '../../config/routes';
 import { Container } from '../Container';
 import { space } from '../../styles/helpers';
 
-const useStyles = makeStyles =>
+const useStyles = makeStyles(() =>
   createStyles({
     mainContainer: {
       height: `${space(200)}px`,
@@ -21,7 +21,8 @@ const useStyles = makeStyles =>
       padding: `${space(5)}px`,
       position: 'relative'
     }
-  });
+  })
+);
 
 export const MainPage = ({ children }) => {
   const classes = useStyles();

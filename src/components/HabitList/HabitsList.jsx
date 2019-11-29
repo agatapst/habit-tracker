@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Typography, Box } from '@material-ui/core';
@@ -8,7 +7,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { colors } from '../../styles/variables';
 import { space } from '../../styles/helpers';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(() =>
   createStyles({
     habitsList: {
       listStyleType: 'none',

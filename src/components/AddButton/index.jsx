@@ -5,16 +5,16 @@ import history from '../../config/history';
 import { CustomButtonBig } from '../Button';
 import { space } from '../../styles/helpers';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   addButton: {
     position: 'absolute',
     zIndex: 1,
-    top: `${space(1) + 1}px`,
+    top: 0,
     right: `${space(12)}px`
   }
 }));
 
-export const AddButton = ({ onClick, ...props }) => {
+export const AddButton = ({ onClick }) => {
   const classes = useStyles();
 
   if (history.location.pathname.match(/tracker/)) {

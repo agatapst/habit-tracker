@@ -9,7 +9,7 @@ import { route } from '../../config/routes';
 import { colors } from '../../styles/variables';
 import { space } from '../../styles/helpers';
 
-const useStyles = makeStyles => ({
+const useStyles = makeStyles(() => ({
   text: {
     padding: `${space(2)}px`
   },
@@ -36,7 +36,7 @@ const useStyles = makeStyles => ({
   root: {
     minHeight: `${space(14)}px`
   }
-});
+}));
 
 export const Navbar = ({ onClick }) => {
   const classes = useStyles();
