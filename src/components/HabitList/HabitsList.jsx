@@ -50,18 +50,10 @@ export const HabitsList = ({ habitsList, deleteHabit, onEditButtonClick }) => {
               </Box>
               <div>
                 <Tooltip title="edit">
-                  <EditIcon
-                    variant="contained"
-                    color="primary"
-                    onClick={() => onEditButtonClick(habit.id)}
-                  />
+                  <EditIcon variant="contained" onClick={() => onEditButtonClick(habit.id)} />
                 </Tooltip>
                 <Tooltip title="delete">
-                  <DeleteIcon
-                    variant="contained"
-                    color="secondary"
-                    onClick={() => deleteHabit(index)}
-                  />
+                  <DeleteIcon variant="contained" onClick={() => deleteHabit(index)} />
                 </Tooltip>
               </div>
             </Box>

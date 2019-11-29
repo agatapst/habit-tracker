@@ -4,8 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { InputField } from '../components/InputField';
 import { FirebaseContext } from './Firebase';
 import { Box, Typography } from '@material-ui/core';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { colors } from '../styles/variables';
 import image from '../assets/login.png';
 import { Link } from 'react-router-dom';
 import { route } from '../config/routes';
@@ -13,13 +11,6 @@ import { Container } from '../components/Container';
 import { CustomButtonBig } from '../components/Button';
 import { Card } from '../components/Card';
 import { useStyles } from './styles';
-
-// import { object } from 'yup';
-
-// const registerSchema = object().shape({
-//   email: validators.email,
-//   password: validators.registerPassword,
-// });
 
 export const Login = withRouter(({ history }) => {
   const firebase = useContext(FirebaseContext);
@@ -31,8 +22,7 @@ export const Login = withRouter(({ history }) => {
         email: '',
         password: ''
       }}
-      // validationSchema={registerSchema}
-      onSubmit={(values, actions) => {
+      onSubmit={values => {
         const { email, password } = values;
         firebase
           .auth()
@@ -46,7 +36,7 @@ export const Login = withRouter(({ history }) => {
           });
       }}
     >
-      {({ isSubmitting, isValid }) => (
+      {() => (
         <Form>
           <Box className={classes.main}>
             <Box className={classes.imageBox}>

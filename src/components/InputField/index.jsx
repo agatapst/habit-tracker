@@ -5,7 +5,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { getFormikErrors } from '../../utils/getFormikErrors';
 import { space } from '../../styles/helpers';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(() =>
   createStyles({
     inputField: {
       margin: `${space(3)}px 0`,
