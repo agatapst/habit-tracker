@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useUser } from '../auth/Firebase';
-import { Typography } from '@material-ui/core';
+import { Loader } from '../components/Loader';
 
 export const PrivateRoute = ({ component, ...props }) => {
-  const LoadingIndicator = () => <Typography variant="body">Loading...</Typography>;
   const RedirectToLogin = () => <Redirect to="/login" />;
 
   const [componentToRender, setComponentToRender] = useState(null);
@@ -12,7 +11,7 @@ export const PrivateRoute = ({ component, ...props }) => {
 
   useEffect(() => {
     if (loading) {
-      setComponentToRender(() => LoadingIndicator);
+      setComponentToRender(() => Loader);
     } else {
       setComponentToRender(() => (user ? component : RedirectToLogin));
     }
