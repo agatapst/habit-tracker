@@ -10,7 +10,7 @@ import { CustomButton } from '../Button';
 import { useUser } from '../../auth/Firebase';
 import { space } from '../../styles/helpers';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(() =>
   createStyles({
     habitsList: {
       listStyleType: 'none',
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme =>
 
 export const HabitsToTrack = ({ habitsList, onTrackHabit }) => {
   const classes = useStyles();
-  const user = useUser();
+  const { user } = useUser();
   const [currentWeekDays, setCurrentWeekDays] = useState([]);
   const [isMonthlyView, setMonthlyView] = useState(false);
 
