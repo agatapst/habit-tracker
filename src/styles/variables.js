@@ -10,7 +10,8 @@ export const colors = {
 
 export const spacing = {
   base: 4,
-  radius: 3
+  radius: 3,
+  radiusBig: 5
 };
 
 export const typography = {

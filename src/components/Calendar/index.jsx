@@ -24,7 +24,7 @@ const useStyles = makeStyles(() =>
 
     activeDay: {
       background: colors.mainRed,
-      borderRadius: spacing.radius
+      borderRadius: spacing.radiusBig
     }
   })
 );

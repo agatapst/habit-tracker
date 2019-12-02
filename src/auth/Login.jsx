@@ -7,7 +7,6 @@ import { Box, Typography } from '@material-ui/core';
 import image from '../assets/login.png';
 import { Link } from 'react-router-dom';
 import { route } from '../config/routes';
-import { Container } from '../components/Container';
 import { CustomButtonBig } from '../components/Button';
 import { Card } from '../components/Card';
 import { useStyles } from './styles';

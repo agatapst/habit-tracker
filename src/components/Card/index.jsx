@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme =>
       justifyContent: 'center',
       background: 'white',
       padding: `${space(5)}px`,
-      borderRadius: spacing.radius
+      borderRadius: spacing.radiusBig
     },
     [theme.breakpoints.down('md')]: {
       width: '100%'

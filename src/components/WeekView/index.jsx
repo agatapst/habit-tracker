@@ -18,7 +18,7 @@ const useStyles = makeStyles(() =>
 
       '& > *': {
         width: '14%',
-        borderRadius: spacing.border,
+        borderRadius: spacing.radiusBig,
         boxShadow: '10px 5px 10px black'
       }
     },

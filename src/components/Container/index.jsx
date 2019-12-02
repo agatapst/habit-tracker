@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { colors } from '../../styles/variables';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(() =>
   createStyles({
     mainContainer: {
       height: 630,
