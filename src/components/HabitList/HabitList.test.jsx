@@ -6,9 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 describe('Habit List', () => {
   test('renders without failing', () => {
     render(
-        <BrowserRouter>
-          <HabitList />
-        </BrowserRouter>
+      <BrowserRouter>
+        <HabitList />
+      </BrowserRouter>
     );
   });
 });

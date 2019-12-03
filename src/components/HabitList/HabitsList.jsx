@@ -21,7 +21,7 @@ const useStyles = makeStyles(() =>
       padding: `${space(1)}px`,
 
       '& svg': {
-        margin: `0 ${space(1)}px 0}`,
+        margin: `0 ${space(1)}px 0`,
         cursor: 'pointer',
 
         '&:first-child': {
