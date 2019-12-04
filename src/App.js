@@ -11,6 +11,7 @@ import * as firebase from 'firebase';
 import { firebaseConfig } from './config/firebase';
 import { FirebaseProvider, UserProvider } from './auth/Firebase';
 import { PrivateRoute } from './utils/PrivateRoute';
+import { ToastContainer } from 'react-toastify';
 
 const THEME = createMuiTheme({
   typography: {
@@ -46,6 +47,7 @@ function App() {
             <PrivateRoute exact path={route.tracker()} component={Tracker} />
             <PrivateRoute exact path={route.list()} component={HabitList} />
           </Router>
+          <ToastContainer />
         </MuiThemeProvider>
       </UserProvider>
     </FirebaseProvider>
