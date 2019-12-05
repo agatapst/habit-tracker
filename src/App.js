@@ -40,6 +40,7 @@ function App() {
     <FirebaseProvider value={firebase}>
       <UserProvider value={{ user: user, loading: loading }}>
         <MuiThemeProvider theme={THEME}>
+          <ToastContainer />
           <Router history={history}>
             <Route exact path={route.root()} component={Register} />
             <Route exact path={route.signUp()} component={Register} />
@@ -47,7 +48,6 @@ function App() {
             <PrivateRoute exact path={route.tracker()} component={Tracker} />
             <PrivateRoute exact path={route.list()} component={HabitList} />
           </Router>
-          <ToastContainer />
         </MuiThemeProvider>
       </UserProvider>
     </FirebaseProvider>

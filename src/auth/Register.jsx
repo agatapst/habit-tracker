@@ -12,7 +12,7 @@ import { Card } from '../components/Card';
 import { useStyles } from './styles';
 import { object } from 'yup';
 import { validators } from '../config/validators';
-import { toast } from 'react-toastify';
+import { NotifyError } from '../components/Toast';
 
 const registerSchema = object().shape({
   name: validators.name,
@@ -49,8 +49,8 @@ export const Register = withRouter(({ history }) => {
             history.push('/tracker');
           })
           .catch(error => {
+            NotifyError(error);
             console.log('Registration error:', error);
-            toast.error('error');
           });
       }}
     >
