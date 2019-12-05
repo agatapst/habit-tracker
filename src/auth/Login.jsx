@@ -10,6 +10,7 @@ import { route } from '../config/routes';
 import { CustomButtonBig } from '../components/Button';
 import { Card } from '../components/Card';
 import { useStyles } from './styles';
+import { NotifyError } from '../components/Toast';
 
 export const Login = withRouter(({ history }) => {
   const firebase = useContext(FirebaseContext);
@@ -31,6 +32,7 @@ export const Login = withRouter(({ history }) => {
             history.push('/tracker');
           })
           .catch(error => {
+            NotifyError(error);
             console.log('Error', error);
           });
       }}
